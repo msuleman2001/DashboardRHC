@@ -160,8 +160,8 @@ namespace DataCollectionService
 
             if (devie_reading_id == 0)
             {
-                EventLog error_log = new EventLog("DashboardRHC: Database Entry Error ");
-                error_log.WriteEntry("Undable to write data into Database");
+                //EventLog error_log = new EventLog("DashboardRHC: Database Entry Error ");
+                //error_log.WriteEntry("Undable to write data into Database");
             }
         }
     }

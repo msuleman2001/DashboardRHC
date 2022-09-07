@@ -276,6 +276,8 @@ namespace DashboardRHC
                 MessageBox.Show("New Patient Saved");
             }
 
+            //some comments added to check the working of git
+
         }
 
         private void btnNewMedicine_Click(object sender, EventArgs e)
