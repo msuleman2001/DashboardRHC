@@ -1,0 +1,8 @@
+﻿0-device name
+1-boot count
+2-body temperature
+3-O2
+4-HR
+5-Environment Humidity
+6-Environment Temp
+7-Resp Rate
