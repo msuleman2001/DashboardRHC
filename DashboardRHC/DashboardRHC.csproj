@@ -82,19 +82,10 @@
     <None Include="bin\Debug\assets\avt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\assets\home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\assets\admin_icon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\assets\logo_saferh_white.fw.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\assets\patient_icon.fw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\assets\devices_icon.fw.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\assets\staff_icon.fw.png" />
