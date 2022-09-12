@@ -24,6 +24,7 @@ namespace DashboardRHC
         private void btnSave_Click(object sender, EventArgs e)
         {     
             //we are appling new checks for required fields in change password
+            //Hi I am line 27 comment....
             if (txtNewPassword.Text != txtConfPassword.Text)
             {
                 MessageBox.Show("New Password and Confirm Password are not same");
