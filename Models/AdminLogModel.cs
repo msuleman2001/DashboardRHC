@@ -9,6 +9,8 @@ using Entities;
 
 namespace Models
 {
+    //this updated by asad
+    //some other change
     public class AdminLogModel
     {
         string connection_string;
