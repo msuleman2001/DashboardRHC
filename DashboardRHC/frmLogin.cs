@@ -46,6 +46,11 @@ namespace DashboardRHC
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (txtAdminName.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Must Provide Username and Password");
+                return;
+            }
             long admin_id = CenterAdminController.CenterAdminLogin(txtAdminName.Text, txtPassword.Text);
             if (admin_id > 0)
             {
