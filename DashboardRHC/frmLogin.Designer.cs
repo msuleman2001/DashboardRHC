@@ -50,17 +50,19 @@ namespace DashboardRHC
             this.panel1.Controls.Add(this.lblFormTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 60);
+            this.panel1.Size = new System.Drawing.Size(467, 69);
             this.panel1.TabIndex = 0;
             // 
             // btnMinimize
             // 
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(329, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(384, 14);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimize.Size = new System.Drawing.Size(29, 29);
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.Text = "_";
             this.btnMinimize.UseVisualStyleBackColor = true;
@@ -70,9 +72,10 @@ namespace DashboardRHC
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(362, 12);
+            this.btnClose.Location = new System.Drawing.Point(422, 14);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(25, 25);
+            this.btnClose.Size = new System.Drawing.Size(29, 29);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -81,11 +84,12 @@ namespace DashboardRHC
             // lblFormTitle
             // 
             this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFormTitle.ForeColor = System.Drawing.Color.White;
-            this.lblFormTitle.Location = new System.Drawing.Point(76, 20);
+            this.lblFormTitle.Location = new System.Drawing.Point(23, 19);
+            this.lblFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(124, 22);
+            this.lblFormTitle.Size = new System.Drawing.Size(117, 24);
             this.lblFormTitle.TabIndex = 0;
             this.lblFormTitle.Text = "Admin Login";
             // 
@@ -93,9 +97,10 @@ namespace DashboardRHC
             // 
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.ForeColor = System.Drawing.Color.White;
-            this.lblAdminName.Location = new System.Drawing.Point(36, 95);
+            this.lblAdminName.Location = new System.Drawing.Point(42, 110);
+            this.lblAdminName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdminName.Name = "lblAdminName";
-            this.lblAdminName.Size = new System.Drawing.Size(67, 13);
+            this.lblAdminName.Size = new System.Drawing.Size(78, 15);
             this.lblAdminName.TabIndex = 1;
             this.lblAdminName.Text = "Admin Name";
             // 
@@ -103,25 +108,28 @@ namespace DashboardRHC
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(50, 128);
+            this.lblPassword.Location = new System.Drawing.Point(58, 148);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(57, 15);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password";
             // 
             // txtAdminName
             // 
-            this.txtAdminName.Location = new System.Drawing.Point(109, 92);
+            this.txtAdminName.Location = new System.Drawing.Point(127, 106);
+            this.txtAdminName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtAdminName.Name = "txtAdminName";
-            this.txtAdminName.Size = new System.Drawing.Size(245, 20);
+            this.txtAdminName.Size = new System.Drawing.Size(285, 23);
             this.txtAdminName.TabIndex = 3;
             this.txtAdminName.Text = "superadmin";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(109, 125);
+            this.txtPassword.Location = new System.Drawing.Point(127, 144);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(245, 20);
+            this.txtPassword.Size = new System.Drawing.Size(285, 23);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Text = "123";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -130,9 +138,10 @@ namespace DashboardRHC
             // 
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(198, 162);
+            this.btnLogin.Location = new System.Drawing.Point(231, 187);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(88, 27);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -142,9 +151,10 @@ namespace DashboardRHC
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(279, 162);
+            this.btnCancel.Location = new System.Drawing.Point(326, 187);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(88, 27);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -153,10 +163,10 @@ namespace DashboardRHC
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.ClientSize = new System.Drawing.Size(400, 232);
+            this.ClientSize = new System.Drawing.Size(467, 268);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -165,6 +175,7 @@ namespace DashboardRHC
             this.Controls.Add(this.lblAdminName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
