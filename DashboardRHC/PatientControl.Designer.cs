@@ -36,6 +36,7 @@ namespace DashboardRHC
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tpgPatientPersonalData = new System.Windows.Forms.TabPage();
+            this.btnSaveVitals = new System.Windows.Forms.Button();
             this.btnVisitHistory = new System.Windows.Forms.Button();
             this.btnSavePatientInfo = new System.Windows.Forms.Button();
             this.gbPatientList = new System.Windows.Forms.GroupBox();
@@ -154,7 +155,6 @@ namespace DashboardRHC
             this.lblObservation = new System.Windows.Forms.Label();
             this.lblDoctor = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
-            this.btnSaveVitals = new System.Windows.Forms.Button();
             this.tabPatient.SuspendLayout();
             this.tpgPatientPersonalData.SuspendLayout();
             this.gbPatientList.SuspendLayout();
@@ -215,6 +215,20 @@ namespace DashboardRHC
             this.tpgPatientPersonalData.Size = new System.Drawing.Size(1392, 722);
             this.tpgPatientPersonalData.TabIndex = 0;
             this.tpgPatientPersonalData.Text = "Patien Personal Data";
+            // 
+            // btnSaveVitals
+            // 
+            this.btnSaveVitals.Enabled = false;
+            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
+            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
+            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSaveVitals.Name = "btnSaveVitals";
+            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
+            this.btnSaveVitals.TabIndex = 12;
+            this.btnSaveVitals.Text = "Save Vitals";
+            this.btnSaveVitals.UseVisualStyleBackColor = true;
+            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
             // 
             // btnVisitHistory
             // 
@@ -1471,20 +1485,6 @@ namespace DashboardRHC
             this.cmbDoctor.Name = "cmbDoctor";
             this.cmbDoctor.Size = new System.Drawing.Size(369, 23);
             this.cmbDoctor.TabIndex = 0;
-            // 
-            // btnSaveVitals
-            // 
-            this.btnSaveVitals.Enabled = false;
-            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
-            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
-            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSaveVitals.Name = "btnSaveVitals";
-            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
-            this.btnSaveVitals.TabIndex = 12;
-            this.btnSaveVitals.Text = "Save Vitals";
-            this.btnSaveVitals.UseVisualStyleBackColor = true;
-            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
             // 
             // PatientControl
             // 

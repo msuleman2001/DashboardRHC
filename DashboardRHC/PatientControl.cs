@@ -11,11 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-
 using Entities;
 using Controllers;
-using System.Windows;
-using MessageBox = System.Windows.Forms.MessageBox;
+
 namespace DashboardRHC
 {
     public partial class PatientControl : UserControl
@@ -260,16 +258,23 @@ namespace DashboardRHC
                 MessageBox.Show("Please Enter Patient Name.");
                 return;
             }
-            if (Regex.Match(txtPatientName.Text, "^[A-Z][a-zA-Z]*$").Success)
+            if (!Regex.Match(txtPatientName.Text, "[a-zA-Z][A-Z]*$").Success)
             {
                 MessageBox.Show("Please Enter a Valid Patient Name." +
-                    "\n\nHint: Avoid Special Characters and Numbers.");
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message" , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtPatientName.Focus();
                 return;
             }
             if (txtAttendentName.Text == "")
             {
                 MessageBox.Show("Please Enter Attendent Name.");
+                return;
+            }
+            if (!Regex.Match(txtAttendentName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Attendent Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPatientName.Focus();
                 return;
             }
             if (txtCNIC.Text.Length < 15)
