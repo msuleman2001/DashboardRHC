@@ -98,7 +98,7 @@ namespace DashboardRHC
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblAdminName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
-            this.lblAdminName.Location = new System.Drawing.Point(21, 135);
+            this.lblAdminName.Location = new System.Drawing.Point(38, 125);
             this.lblAdminName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdminName.Name = "lblAdminName";
             this.lblAdminName.Size = new System.Drawing.Size(133, 23);
@@ -110,7 +110,7 @@ namespace DashboardRHC
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
-            this.lblPassword.Location = new System.Drawing.Point(58, 194);
+            this.lblPassword.Location = new System.Drawing.Point(75, 184);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(96, 23);
@@ -120,7 +120,7 @@ namespace DashboardRHC
             // txtAdminName
             // 
             this.txtAdminName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAdminName.Location = new System.Drawing.Point(162, 131);
+            this.txtAdminName.Location = new System.Drawing.Point(179, 121);
             this.txtAdminName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtAdminName.Name = "txtAdminName";
             this.txtAdminName.Size = new System.Drawing.Size(292, 33);
@@ -130,7 +130,7 @@ namespace DashboardRHC
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(162, 190);
+            this.txtPassword.Location = new System.Drawing.Point(179, 180);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(292, 33);
@@ -144,10 +144,10 @@ namespace DashboardRHC
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(44, 264);
+            this.btnLogin.Location = new System.Drawing.Point(38, 254);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(417, 42);
+            this.btnLogin.Size = new System.Drawing.Size(433, 42);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -159,10 +159,10 @@ namespace DashboardRHC
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(44, 312);
+            this.button1.Location = new System.Drawing.Point(38, 311);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(417, 42);
+            this.button1.Size = new System.Drawing.Size(433, 42);
             this.button1.TabIndex = 6;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = false;
