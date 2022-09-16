@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -51,6 +52,8 @@ namespace DashboardRHC
                 MessageBox.Show("Must Provide Username and Password");
                 return;
             }
+
+            
             long admin_id = CenterAdminController.CenterAdminLogin(txtAdminName.Text, txtPassword.Text);
             if (admin_id > 0)
             {

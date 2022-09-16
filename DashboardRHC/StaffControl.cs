@@ -23,6 +23,32 @@ namespace DashboardRHC
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtStaffName.Text == "")
+            {
+                MessageBox.Show("Please Enter Staff Name.");
+                return;
+            }
+            if (txtDesignation.Text == "")
+            {
+                MessageBox.Show("Please Enter Designation.");
+                return;
+            }
+            if (txtQualification.Text == "")
+            {
+                MessageBox.Show("Please Enter Qualification.");
+                return;
+            }
+            if (txtPhone.Text == "")
+            {
+                MessageBox.Show("Please Enter Phone.");
+                return;
+            }
+            if (txtAddress.Text == "")
+            {
+                MessageBox.Show("Please Enter Address.");
+                return;
+            }
+
             StaffRHCEntity staff = new StaffRHCEntity();
             staff.StaffID = Convert.ToInt32(this.Tag);
             staff.StaffName = txtStaffName.Text;

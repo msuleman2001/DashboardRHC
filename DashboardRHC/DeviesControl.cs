@@ -23,6 +23,26 @@ namespace DashboardRHC
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtDeviceName.Text == "")
+            {
+                MessageBox.Show("Please Enter Device Name.");
+                return;
+            }
+            if (txtMACAddress.Text == "")
+            {
+                MessageBox.Show("Please Enter MAC Address.");
+                return;
+            }
+            if (txtDeviceIP.Text.Length < 15)
+            {
+                MessageBox.Show("Please Enter Device IP.");
+                return;
+            }
+            if (txtSensors.Text == "")
+            {
+                MessageBox.Show("Please Enter Sensor Name.");
+                return;
+            }
             DeviceEntity device = new DeviceEntity();
             device.DeviceID = Convert.ToInt32(this.Tag);
             device.DeviceName = txtDeviceName.Text;

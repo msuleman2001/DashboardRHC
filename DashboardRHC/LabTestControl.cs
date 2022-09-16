@@ -25,7 +25,12 @@ namespace DashboardRHC
 
         private void btnSaveLabTest_Click(object sender, EventArgs e)
         {
-           LabTestEntity new_LabTest = new LabTestEntity();
+            if (txtLabTetsName.Text == "" || txtNormalValue.Text == "")
+            {
+                MessageBox.Show("Please Enter LabTest Name & Normal Value.");
+                return;
+            }
+            LabTestEntity new_LabTest = new LabTestEntity();
             new_LabTest.LabTestID = 0;
             new_LabTest.LabTestName = txtLabTetsName.Text;
             new_LabTest.NormalRange = txtNormalValue.Text;

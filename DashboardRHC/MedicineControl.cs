@@ -25,6 +25,11 @@ namespace DashboardRHC
 
         private void btnSaveMedicine_Click(object sender, EventArgs e)
         {
+            if (txtMedicineName.Text == "" || txtPotency.Text == "")
+            {
+                MessageBox.Show("Please Enter Medicine Name & Potency.");
+                return;
+            }
             MedicineEntity new_medicine = new MedicineEntity();
             new_medicine.MedicineID = 0;
             new_medicine.MedicineName = txtMedicineName.Text;

@@ -14,7 +14,8 @@ using System.Text.RegularExpressions;
 
 using Entities;
 using Controllers;
-
+using System.Windows;
+using MessageBox = System.Windows.Forms.MessageBox;
 namespace DashboardRHC
 {
     public partial class PatientControl : UserControl
@@ -199,9 +200,8 @@ namespace DashboardRHC
             new_symptom.SymptomEnabled = "1";
             new_symptom.CreatedByID = Program.AdminID;
             
-
             if (SymptomController.SymptomInsertUpdate(new_symptom) > 0)
-                MessageBox.Show("Value added");
+                System.Windows.Forms.MessageBox.Show("Value added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnAddCategoryAndValue_Click(object sender, EventArgs e)
@@ -255,6 +255,38 @@ namespace DashboardRHC
 
         private void btnSavePatientInfo_Click(object sender, EventArgs e)
         {
+            if (txtPatientName.Text == "")
+            {
+                MessageBox.Show("Please Enter Patient Name.");
+                return;
+            }
+            if (Regex.Match(txtPatientName.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Patient Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.");
+                txtPatientName.Focus();
+                return;
+            }
+            if (txtAttendentName.Text == "")
+            {
+                MessageBox.Show("Please Enter Attendent Name.");
+                return;
+            }
+            if (txtCNIC.Text.Length < 15)
+            {
+                MessageBox.Show("Please Enter CNIC.");
+                return;
+            }
+            if (txtPhone.Text.Length < 12)
+            {
+                MessageBox.Show("Please Enter Phone Number.");
+                return;
+            }
+            if (txtAddress.Text == "")
+            {
+                MessageBox.Show("Please Enter Address.");
+                return;
+            }
             AdmittedPatientEntity new_patient = new AdmittedPatientEntity();
             new_patient.PatientID = Convert.ToInt64(txtPatientName.Tag);
             new_patient.PatientName = txtPatientName.Text;
@@ -294,6 +326,12 @@ namespace DashboardRHC
 
         private void btnMedicineSave_Click(object sender, EventArgs e)
         {
+            if (txtMedicineName.Text == "" || txtDosage.Text == "")
+            {
+                MessageBox.Show("Please Enter Medicine Name & Dosage.");
+                return;
+            }
+
             if (Convert.ToInt64(txtPatientName.Tag) == 0)
             {
                 MessageBox.Show("Select or save patient");
@@ -333,6 +371,11 @@ namespace DashboardRHC
 
         private void btnPatientLabTestSave_Click(object sender, EventArgs e)
         {
+            if (txtTestName.Text == "" || txtValue.Text == "")
+            {
+                MessageBox.Show("Please Enter Test Name & Value.");
+                return;
+            }
             PatientLabTestEntity new_patient_labtest = new PatientLabTestEntity();
             new_patient_labtest.PatientLabTestID = 0;
             new_patient_labtest.LabTestID = 1;
@@ -542,6 +585,11 @@ namespace DashboardRHC
 
         private void btnSaveStaffObservation_Click(object sender, EventArgs e)
         {
+            if (txtObservationPatientName.Text == "" || txtObservation.Text == "")
+            {
+                MessageBox.Show("Please Enter Patient Name & Observation.");
+                return;
+            }
             if (txtPatientName.Tag.ToString() == "0")
             {
                 MessageBox.Show("Save patient data before saving observation");
