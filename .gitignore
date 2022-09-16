@@ -71,6 +71,7 @@ StyleCopReport.xml
 
 # Files built by Visual Studio
 *.exe
+*.dll
 *.accdb
 *_i.c
 *_p.c
