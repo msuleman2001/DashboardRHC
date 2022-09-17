@@ -30,6 +30,7 @@ namespace DashboardRHC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblNameRHC = new System.Windows.Forms.Label();
@@ -118,8 +119,8 @@ namespace DashboardRHC
             // picSAFERHLogo
             // 
             this.picSAFERHLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picSAFERHLogo.Image = global::DashboardRHC.Properties.Resources.SAFE_RH_LOGO;
-            this.picSAFERHLogo.Location = new System.Drawing.Point(14, 18);
+            this.picSAFERHLogo.Image = ((System.Drawing.Image)(resources.GetObject("picSAFERHLogo.Image")));
+            this.picSAFERHLogo.Location = new System.Drawing.Point(24, 18);
             this.picSAFERHLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picSAFERHLogo.Name = "picSAFERHLogo";
             this.picSAFERHLogo.Size = new System.Drawing.Size(184, 58);
@@ -156,7 +157,7 @@ namespace DashboardRHC
             // 
             // picUser
             // 
-            this.picUser.BackgroundImage = global::DashboardRHC.Properties.Resources.admin_icon;
+            this.picUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picUser.BackgroundImage")));
             this.picUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picUser.Location = new System.Drawing.Point(14, 25);
             this.picUser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
