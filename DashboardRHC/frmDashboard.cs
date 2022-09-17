@@ -182,5 +182,10 @@ namespace DashboardRHC
 
 
         }
+
+        private void picSAFERHLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

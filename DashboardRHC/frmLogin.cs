@@ -86,5 +86,10 @@ namespace DashboardRHC
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

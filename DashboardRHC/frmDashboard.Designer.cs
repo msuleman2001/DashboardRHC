@@ -30,7 +30,6 @@ namespace DashboardRHC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblNameRHC = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace DashboardRHC
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlAdminOps = new System.Windows.Forms.Panel();
+            this.btnStartCollectionService = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnAdmins = new System.Windows.Forms.Button();
@@ -54,7 +54,6 @@ namespace DashboardRHC
             this.niSAFERH = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmrDashboard = new System.Windows.Forms.Timer(this.components);
-            this.btnStartCollectionService = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSAFERHLogo)).BeginInit();
             this.pnlCommand.SuspendLayout();
@@ -79,7 +78,7 @@ namespace DashboardRHC
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.pnlHeader.Controls.Add(this.lblNameRHC);
             this.pnlHeader.Controls.Add(this.lblAppTitle);
             this.pnlHeader.Controls.Add(this.picSAFERHLogo);
@@ -95,37 +94,39 @@ namespace DashboardRHC
             // 
             this.lblNameRHC.AutoSize = true;
             this.lblNameRHC.BackColor = System.Drawing.Color.Transparent;
-            this.lblNameRHC.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblNameRHC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblNameRHC.ForeColor = System.Drawing.Color.White;
-            this.lblNameRHC.Location = new System.Drawing.Point(223, 57);
+            this.lblNameRHC.Location = new System.Drawing.Point(223, 52);
             this.lblNameRHC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNameRHC.Name = "lblNameRHC";
-            this.lblNameRHC.Size = new System.Drawing.Size(171, 18);
+            this.lblNameRHC.Size = new System.Drawing.Size(183, 24);
             this.lblNameRHC.TabIndex = 8;
             this.lblNameRHC.Text = "RHC Khanqah Sharif";
             // 
             // lblAppTitle
             // 
             this.lblAppTitle.AutoSize = true;
-            this.lblAppTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblAppTitle.ForeColor = System.Drawing.Color.White;
-            this.lblAppTitle.Location = new System.Drawing.Point(222, 25);
+            this.lblAppTitle.Location = new System.Drawing.Point(223, 18);
             this.lblAppTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(489, 22);
+            this.lblAppTitle.Size = new System.Drawing.Size(563, 25);
             this.lblAppTitle.TabIndex = 6;
             this.lblAppTitle.Text = "Sensing, ArtiFicial Intelligence and Edge Networking";
             // 
             // picSAFERHLogo
             // 
-            this.picSAFERHLogo.BackgroundImage = global::DashboardRHC.Properties.Resources.logo_saferh_white_fw;
             this.picSAFERHLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSAFERHLogo.Image = global::DashboardRHC.Properties.Resources.SAFE_RH_LOGO;
             this.picSAFERHLogo.Location = new System.Drawing.Point(14, 18);
             this.picSAFERHLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picSAFERHLogo.Name = "picSAFERHLogo";
             this.picSAFERHLogo.Size = new System.Drawing.Size(184, 58);
+            this.picSAFERHLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSAFERHLogo.TabIndex = 5;
             this.picSAFERHLogo.TabStop = false;
+            this.picSAFERHLogo.Click += new System.EventHandler(this.picSAFERHLogo_Click);
             // 
             // pnlCommand
             // 
@@ -144,12 +145,12 @@ namespace DashboardRHC
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsername.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(68, 28);
+            this.lblUsername.Location = new System.Drawing.Point(69, 22);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(124, 18);
+            this.lblUsername.Size = new System.Drawing.Size(124, 20);
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Current Admin";
             // 
@@ -166,7 +167,7 @@ namespace DashboardRHC
             // 
             // pnlSidebar
             // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.pnlSidebar.Controls.Add(this.btnDevices);
             this.pnlSidebar.Controls.Add(this.btnStaff);
             this.pnlSidebar.Controls.Add(this.btnPatient);
@@ -180,13 +181,13 @@ namespace DashboardRHC
             // 
             // btnDevices
             // 
-            this.btnDevices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnDevices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnDevices.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDevices.FlatAppearance.BorderSize = 0;
             this.btnDevices.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnDevices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDevices.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDevices.ForeColor = System.Drawing.Color.White;
             this.btnDevices.Location = new System.Drawing.Point(14, 184);
             this.btnDevices.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDevices.Name = "btnDevices";
@@ -199,13 +200,13 @@ namespace DashboardRHC
             // 
             // btnStaff
             // 
-            this.btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStaff.FlatAppearance.BorderSize = 0;
             this.btnStaff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStaff.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStaff.ForeColor = System.Drawing.Color.White;
             this.btnStaff.Location = new System.Drawing.Point(14, 138);
             this.btnStaff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnStaff.Name = "btnStaff";
@@ -218,13 +219,13 @@ namespace DashboardRHC
             // 
             // btnPatient
             // 
-            this.btnPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnPatient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPatient.FlatAppearance.BorderSize = 0;
             this.btnPatient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPatient.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPatient.ForeColor = System.Drawing.Color.White;
             this.btnPatient.Location = new System.Drawing.Point(14, 92);
             this.btnPatient.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPatient.Name = "btnPatient";
@@ -237,13 +238,13 @@ namespace DashboardRHC
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHome.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.Location = new System.Drawing.Point(14, 47);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHome.Name = "btnHome";
@@ -256,7 +257,7 @@ namespace DashboardRHC
             // 
             // pnlBody
             // 
-            this.pnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.pnlBody.BackColor = System.Drawing.Color.White;
             this.pnlBody.Controls.Add(this.pnlAdminOps);
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(233, 92);
@@ -273,7 +274,7 @@ namespace DashboardRHC
             this.pnlAdminOps.Controls.Add(this.btnAdmins);
             this.pnlAdminOps.Controls.Add(this.btnStaffRequests);
             this.pnlAdminOps.Controls.Add(this.btnNotifications);
-            this.pnlAdminOps.Location = new System.Drawing.Point(793, 3);
+            this.pnlAdminOps.Location = new System.Drawing.Point(794, 3);
             this.pnlAdminOps.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlAdminOps.Name = "pnlAdminOps";
             this.pnlAdminOps.Size = new System.Drawing.Size(233, 175);
@@ -282,9 +283,30 @@ namespace DashboardRHC
             this.pnlAdminOps.MouseLeave += new System.EventHandler(this.pnlAdminOps_MouseLeave);
             this.pnlAdminOps.MouseHover += new System.EventHandler(this.pnlAdminOps_MouseHover);
             // 
+            // btnStartCollectionService
+            // 
+            this.btnStartCollectionService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnStartCollectionService.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartCollectionService.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStartCollectionService.FlatAppearance.BorderSize = 0;
+            this.btnStartCollectionService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnStartCollectionService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartCollectionService.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStartCollectionService.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnStartCollectionService.Location = new System.Drawing.Point(0, 145);
+            this.btnStartCollectionService.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStartCollectionService.Name = "btnStartCollectionService";
+            this.btnStartCollectionService.Size = new System.Drawing.Size(233, 29);
+            this.btnStartCollectionService.TabIndex = 13;
+            this.btnStartCollectionService.Text = "Start Collection Serivice";
+            this.btnStartCollectionService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStartCollectionService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStartCollectionService.UseVisualStyleBackColor = false;
+            this.btnStartCollectionService.Click += new System.EventHandler(this.btnStartCollectionService_Click);
+            // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogout.FlatAppearance.BorderSize = 0;
@@ -304,7 +326,7 @@ namespace DashboardRHC
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnChangePassword.FlatAppearance.BorderSize = 0;
@@ -325,7 +347,7 @@ namespace DashboardRHC
             // 
             // btnAdmins
             // 
-            this.btnAdmins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnAdmins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnAdmins.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdmins.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdmins.FlatAppearance.BorderSize = 0;
@@ -346,7 +368,7 @@ namespace DashboardRHC
             // 
             // btnStaffRequests
             // 
-            this.btnStaffRequests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnStaffRequests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnStaffRequests.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStaffRequests.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStaffRequests.FlatAppearance.BorderSize = 0;
@@ -366,7 +388,7 @@ namespace DashboardRHC
             // 
             // btnNotifications
             // 
-            this.btnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnNotifications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNotifications.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNotifications.FlatAppearance.BorderSize = 0;
@@ -387,7 +409,6 @@ namespace DashboardRHC
             // 
             // niSAFERH
             // 
-            this.niSAFERH.Icon = ((System.Drawing.Icon)(resources.GetObject("niSAFERH.Icon")));
             this.niSAFERH.Text = "SAFE-RH MIS App";
             this.niSAFERH.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.niSAFERH_MouseDoubleClick);
             // 
@@ -401,27 +422,6 @@ namespace DashboardRHC
             this.tmrDashboard.Enabled = true;
             this.tmrDashboard.Interval = 3000;
             this.tmrDashboard.Tick += new System.EventHandler(this.tmrDashboard_Tick);
-            // 
-            // btnStartCollectionService
-            // 
-            this.btnStartCollectionService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnStartCollectionService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStartCollectionService.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStartCollectionService.FlatAppearance.BorderSize = 0;
-            this.btnStartCollectionService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnStartCollectionService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartCollectionService.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStartCollectionService.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnStartCollectionService.Location = new System.Drawing.Point(0, 145);
-            this.btnStartCollectionService.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnStartCollectionService.Name = "btnStartCollectionService";
-            this.btnStartCollectionService.Size = new System.Drawing.Size(233, 29);
-            this.btnStartCollectionService.TabIndex = 13;
-            this.btnStartCollectionService.Text = "Start Collection Serivice";
-            this.btnStartCollectionService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStartCollectionService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStartCollectionService.UseVisualStyleBackColor = false;
-            this.btnStartCollectionService.Click += new System.EventHandler(this.btnStartCollectionService_Click);
             // 
             // frmDashboard
             // 

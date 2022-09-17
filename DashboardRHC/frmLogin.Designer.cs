@@ -31,8 +31,8 @@ namespace DashboardRHC
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblFormTitle = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtAdminName = new System.Windows.Forms.TextBox();
@@ -68,6 +68,18 @@ namespace DashboardRHC
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFormTitle.ForeColor = System.Drawing.Color.White;
+            this.lblFormTitle.Location = new System.Drawing.Point(162, 19);
+            this.lblFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(174, 31);
+            this.lblFormTitle.TabIndex = 0;
+            this.lblFormTitle.Text = "Admin Login";
+            // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -80,18 +92,6 @@ namespace DashboardRHC
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblFormTitle
-            // 
-            this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFormTitle.ForeColor = System.Drawing.Color.White;
-            this.lblFormTitle.Location = new System.Drawing.Point(162, 19);
-            this.lblFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(174, 31);
-            this.lblFormTitle.TabIndex = 0;
-            this.lblFormTitle.Text = "Admin Login";
             // 
             // lblAdminName
             // 
@@ -187,6 +187,7 @@ namespace DashboardRHC
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
