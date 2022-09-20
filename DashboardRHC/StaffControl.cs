@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -25,27 +26,43 @@ namespace DashboardRHC
         {
             if (txtStaffName.Text == "")
             {
-                MessageBox.Show("Please Enter Staff Name.");
+                MessageBox.Show("Please Enter Staff Name.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtStaffName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Staff Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtStaffName.Focus();
                 return;
             }
             if (txtDesignation.Text == "")
             {
-                MessageBox.Show("Please Enter Designation.");
+                MessageBox.Show("Please Enter Designation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             if (txtQualification.Text == "")
             {
-                MessageBox.Show("Please Enter Qualification.");
+                MessageBox.Show("Please Enter Qualification.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             if (txtPhone.Text == "")
             {
-                MessageBox.Show("Please Enter Phone.");
+                MessageBox.Show("Please Enter Phone Number.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtPhone.Text, "[0-9]").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Phone Number." +
+                    "\n\nHint: Avoid Special Characters and Alphabets.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPhone.Focus();
                 return;
             }
             if (txtAddress.Text == "")
             {
-                MessageBox.Show("Please Enter Address.");
+                MessageBox.Show("Please Enter Address.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -65,12 +82,12 @@ namespace DashboardRHC
             staff.LastUpdateID = Convert.ToInt32(this.Parent.Parent.Tag);
             if (StaffRHCController.InsertUpdateStaffRHC(staff) > 0)
             {
-                MessageBox.Show("Data Saved");
+                MessageBox.Show("Data Saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
             }
                
             else
-                MessageBox.Show("Unable to store data");
+                MessageBox.Show("Unable to store data", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void ClearFields()

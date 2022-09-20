@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -28,6 +29,13 @@ namespace DashboardRHC
             if (txtLabTetsName.Text == "" || txtNormalValue.Text == "")
             {
                 MessageBox.Show("Please Enter LabTest Name & Normal Value.");
+                return;
+            }
+            if (!Regex.Match(txtLabTetsName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Lab Test Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtLabTetsName.Focus();
                 return;
             }
             LabTestEntity new_LabTest = new LabTestEntity();

@@ -247,7 +247,7 @@ namespace DashboardRHC
 
             if (PatientSymptomController.PatientSymptomInsertUpdate(add_symptom) > 0)
             {
-                MessageBox.Show("Value is added");
+                MessageBox.Show("Value is added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -255,7 +255,7 @@ namespace DashboardRHC
         {
             if (txtPatientName.Text == "")
             {
-                MessageBox.Show("Please Enter Patient Name.");
+                MessageBox.Show("Please Enter Patient Name.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!Regex.Match(txtPatientName.Text, "[a-zA-Z][A-Z]*$").Success)
@@ -267,29 +267,29 @@ namespace DashboardRHC
             }
             if (txtAttendentName.Text == "")
             {
-                MessageBox.Show("Please Enter Attendent Name.");
+                MessageBox.Show("Please Enter Attendent Name.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!Regex.Match(txtAttendentName.Text, "[a-zA-Z][A-Z]*$").Success)
             {
                 MessageBox.Show("Please Enter a Valid Attendent Name." +
                     "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtPatientName.Focus();
+                txtAttendentName.Focus();
                 return;
             }
             if (txtCNIC.Text.Length < 15)
             {
-                MessageBox.Show("Please Enter CNIC.");
+                MessageBox.Show("Please Enter CNIC.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtPhone.Text.Length < 12)
             {
-                MessageBox.Show("Please Enter Phone Number.");
+                MessageBox.Show("Please Enter Phone Number.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtAddress.Text == "")
             {
-                MessageBox.Show("Please Enter Address.");
+                MessageBox.Show("Please Enter Address.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             AdmittedPatientEntity new_patient = new AdmittedPatientEntity();
@@ -310,7 +310,7 @@ namespace DashboardRHC
 
             if ( new_id > 0)
             {
-                MessageBox.Show("New Patient Saved");
+                MessageBox.Show("New Patient Saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -333,13 +333,21 @@ namespace DashboardRHC
         {
             if (txtMedicineName.Text == "" || txtDosage.Text == "")
             {
-                MessageBox.Show("Please Enter Medicine Name & Dosage.");
+                MessageBox.Show("Please Enter Medicine Name & Dosage.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtDosage.Text, "[a-zA-Z0-9]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Medicine Dosage." +
+                    "\n\nHint: Avoid Special Characters.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDosage.Focus();
                 return;
             }
 
+
             if (Convert.ToInt64(txtPatientName.Tag) == 0)
             {
-                MessageBox.Show("Select or save patient");
+                MessageBox.Show("Select or save patient!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             PatientMedicineEntity new_patient_medicine = new PatientMedicineEntity();
@@ -355,7 +363,7 @@ namespace DashboardRHC
             {
                 List<PatientMedicineEntity> patient_medicines = PatientMedicineController.GetPatientMedcineByPatientID(new_patient_medicine.PatientID);
                 gdvMedicine.DataSource = patient_medicines;
-                MessageBox.Show("value is added");
+                MessageBox.Show("value is added.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -381,6 +389,7 @@ namespace DashboardRHC
                 MessageBox.Show("Please Enter Test Name & Value.");
                 return;
             }
+            
             PatientLabTestEntity new_patient_labtest = new PatientLabTestEntity();
             new_patient_labtest.PatientLabTestID = 0;
             new_patient_labtest.LabTestID = 1;
@@ -459,7 +468,7 @@ namespace DashboardRHC
 
             if (search_string == "")
             {
-                MessageBox.Show("Please input CNIC or Phone");
+                MessageBox.Show("Please input CNIC or Phone.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             List<AdmittedPatientEntity> patients = AdmittedPatientController.GetPatientByPhoneOrCNIC(search_string);
@@ -592,15 +601,23 @@ namespace DashboardRHC
         {
             if (txtObservationPatientName.Text == "" || txtObservation.Text == "")
             {
-                MessageBox.Show("Please Enter Patient Name & Observation.");
+                MessageBox.Show("Please Enter Patient Name & Observation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtObservationPatientName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Patient Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtObservationPatientName.Focus();
                 return;
             }
             if (txtPatientName.Tag.ToString() == "0")
             {
-                MessageBox.Show("Save patient data before saving observation");
+                MessageBox.Show("Save patient data before saving observation", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-                
+            
+
 
             StaffObservationEntity staff_observation = new StaffObservationEntity();
             staff_observation.StaffObservationID = 0;
@@ -612,13 +629,20 @@ namespace DashboardRHC
             staff_observation.CreatedDateTime = DateTime.Now;
             long new_ob_id = StaffObservationController.InsertUpdateStaffObservation(staff_observation);
             if (new_ob_id > 0)
-                MessageBox.Show("Observation Added");
+                MessageBox.Show("Observation Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Error");
         }
 
         private void btnSaveVitals_Click(object sender, EventArgs e)
         {
+            if (!Regex.Match(txtWeight.Text, "[-+]?[0-9]*\\.?[0-9]*").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Value." +
+                    "\n\nHint: Avoid Alphabets & Special Character.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPatientName.Focus();
+                return;
+            }
             long patient_id = Convert.ToInt64(txtPatientName.Tag);
             if (patient_id > 0)
             {
@@ -635,8 +659,18 @@ namespace DashboardRHC
                         PatientVitalsController.InsertUpdatePatientVitals(vital);
                     }
                 }
-                MessageBox.Show("Values Added");
+                MessageBox.Show("Values Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void dgvPatientList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

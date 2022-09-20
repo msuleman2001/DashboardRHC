@@ -68,6 +68,7 @@ namespace DashboardRHC
             this.pnlBoxBody.Name = "pnlBoxBody";
             this.pnlBoxBody.Size = new System.Drawing.Size(233, 153);
             this.pnlBoxBody.TabIndex = 1;
+            this.pnlBoxBody.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBoxBody_Paint);
             // 
             // lblRepiratoryRate
             // 

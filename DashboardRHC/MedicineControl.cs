@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -30,6 +31,14 @@ namespace DashboardRHC
                 MessageBox.Show("Please Enter Medicine Name & Potency.");
                 return;
             }
+            if (!Regex.Match(txtMedicineName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Medicine Name." +
+                    "\n\nHint: Avoid Special Characters & Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtMedicineName.Focus();
+                return;
+            }
+            
             MedicineEntity new_medicine = new MedicineEntity();
             new_medicine.MedicineID = 0;
             new_medicine.MedicineName = txtMedicineName.Text;
@@ -45,7 +54,7 @@ namespace DashboardRHC
                 List<MedicineEntity> medicine_list = new List<MedicineEntity>();
                 medicine_list = MedicineContorller.MedicineSelectAll();
                 gdvMedicine.DataSource = medicine_list;
-                MessageBox.Show("Medicine is added");
+                MessageBox.Show("Medicine is added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
