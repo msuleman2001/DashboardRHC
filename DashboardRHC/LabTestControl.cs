@@ -53,7 +53,7 @@ namespace DashboardRHC
                 List<LabTestEntity> labtest_list = new List<LabTestEntity>();
                 labtest_list = LabTestController.LabTestSelectAll();
                 gdvLabTest.DataSource = labtest_list;
-                MessageBox.Show("Medicine is added");
+                MessageBox.Show("Lab Test is Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -66,7 +66,7 @@ namespace DashboardRHC
 
         private void btnCloseLabTest_Click(object sender, EventArgs e)
         {
-            Close(sender, e);
+            this.Parent.Controls.Remove(this);
         }
     }
 }

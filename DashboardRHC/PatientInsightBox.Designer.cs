@@ -77,9 +77,9 @@ namespace DashboardRHC
             this.lblRepiratoryRate.Location = new System.Drawing.Point(16, 96);
             this.lblRepiratoryRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRepiratoryRate.Name = "lblRepiratoryRate";
-            this.lblRepiratoryRate.Size = new System.Drawing.Size(70, 15);
+            this.lblRepiratoryRate.Size = new System.Drawing.Size(79, 15);
             this.lblRepiratoryRate.TabIndex = 14;
-            this.lblRepiratoryRate.Text = "Resp Rate   :";
+            this.lblRepiratoryRate.Text = "Resp Rate      :";
             // 
             // lblBatteryLife
             // 
@@ -88,9 +88,9 @@ namespace DashboardRHC
             this.lblBatteryLife.Location = new System.Drawing.Point(16, 115);
             this.lblBatteryLife.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBatteryLife.Name = "lblBatteryLife";
-            this.lblBatteryLife.Size = new System.Drawing.Size(47, 15);
+            this.lblBatteryLife.Size = new System.Drawing.Size(80, 15);
             this.lblBatteryLife.TabIndex = 13;
-            this.lblBatteryLife.Text = "Battery:";
+            this.lblBatteryLife.Text = "Battery           :";
             // 
             // lblEnvHumidity
             // 
@@ -99,9 +99,9 @@ namespace DashboardRHC
             this.lblEnvHumidity.Location = new System.Drawing.Point(18, 76);
             this.lblEnvHumidity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnvHumidity.Name = "lblEnvHumidity";
-            this.lblEnvHumidity.Size = new System.Drawing.Size(75, 15);
+            this.lblEnvHumidity.Size = new System.Drawing.Size(78, 15);
             this.lblEnvHumidity.TabIndex = 11;
-            this.lblEnvHumidity.Text = "Evno Humi  :";
+            this.lblEnvHumidity.Text = "Evno Humi   :";
             // 
             // lblEnvTemp
             // 
@@ -110,9 +110,9 @@ namespace DashboardRHC
             this.lblEnvTemp.Location = new System.Drawing.Point(18, 57);
             this.lblEnvTemp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnvTemp.Name = "lblEnvTemp";
-            this.lblEnvTemp.Size = new System.Drawing.Size(71, 15);
+            this.lblEnvTemp.Size = new System.Drawing.Size(77, 15);
             this.lblEnvTemp.TabIndex = 10;
-            this.lblEnvTemp.Text = "Envo Temp :";
+            this.lblEnvTemp.Text = "Envo Temp   :";
             // 
             // lblO2Saturation
             // 
@@ -121,9 +121,9 @@ namespace DashboardRHC
             this.lblO2Saturation.Location = new System.Drawing.Point(18, 37);
             this.lblO2Saturation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblO2Saturation.Name = "lblO2Saturation";
-            this.lblO2Saturation.Size = new System.Drawing.Size(70, 15);
+            this.lblO2Saturation.Size = new System.Drawing.Size(79, 15);
             this.lblO2Saturation.TabIndex = 9;
-            this.lblO2Saturation.Text = "O2 - HR      :";
+            this.lblO2Saturation.Text = "O2 - HR         :";
             // 
             // lblBodyTemperature
             // 
@@ -132,9 +132,9 @@ namespace DashboardRHC
             this.lblBodyTemperature.Location = new System.Drawing.Point(18, 17);
             this.lblBodyTemperature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBodyTemperature.Name = "lblBodyTemperature";
-            this.lblBodyTemperature.Size = new System.Drawing.Size(72, 15);
+            this.lblBodyTemperature.Size = new System.Drawing.Size(81, 15);
             this.lblBodyTemperature.TabIndex = 8;
-            this.lblBodyTemperature.Text = "Body Temp :";
+            this.lblBodyTemperature.Text = "Body Temp    :";
             // 
             // lblPatientName
             // 

@@ -41,6 +41,12 @@ namespace DashboardRHC
             this.btnSavePatientInfo = new System.Windows.Forms.Button();
             this.gbPatientList = new System.Windows.Forms.GroupBox();
             this.dgvPatientList = new System.Windows.Forms.DataGridView();
+            this.colAdmittedPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAttendentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbMedicalInfo = new System.Windows.Forms.GroupBox();
             this.txtBloodPressure = new System.Windows.Forms.MaskedTextBox();
             this.txtHeartRate = new System.Windows.Forms.TextBox();
@@ -136,10 +142,6 @@ namespace DashboardRHC
             this.tpgStaffObservations = new System.Windows.Forms.TabPage();
             this.lblPatientObservationHistory = new System.Windows.Forms.Label();
             this.dgvPatientObservationHistory = new System.Windows.Forms.DataGridView();
-            this.colStaffObservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservationDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtObservationPatientName = new System.Windows.Forms.TextBox();
             this.lblObservationPatientName = new System.Windows.Forms.Label();
             this.btnSaveStaffObservation = new System.Windows.Forms.Button();
@@ -149,12 +151,10 @@ namespace DashboardRHC
             this.lblObservation = new System.Windows.Forms.Label();
             this.lblDoctor = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
-            this.colAdmittedPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAttendentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStaffObservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservationDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPatient.SuspendLayout();
             this.tpgPatientPersonalData.SuspendLayout();
             this.gbPatientList.SuspendLayout();
@@ -289,6 +289,66 @@ namespace DashboardRHC
             this.dgvPatientList.TabIndex = 0;
             this.dgvPatientList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellContentClick);
             this.dgvPatientList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellContentClick_1);
+            // 
+            // colAdmittedPatientID
+            // 
+            this.colAdmittedPatientID.DataPropertyName = "PatientID";
+            this.colAdmittedPatientID.DividerWidth = 50;
+            this.colAdmittedPatientID.HeaderText = "PatientID";
+            this.colAdmittedPatientID.Name = "colAdmittedPatientID";
+            this.colAdmittedPatientID.ReadOnly = true;
+            this.colAdmittedPatientID.Visible = false;
+            this.colAdmittedPatientID.Width = 105;
+            // 
+            // colPatientName
+            // 
+            this.colPatientName.DataPropertyName = "PatientName";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.colPatientName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colPatientName.HeaderText = "Patient Name";
+            this.colPatientName.Name = "colPatientName";
+            this.colPatientName.ReadOnly = true;
+            this.colPatientName.Width = 202;
+            // 
+            // colAttendentName
+            // 
+            this.colAttendentName.DataPropertyName = "AttendentName";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.colAttendentName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colAttendentName.HeaderText = "Attendent Name";
+            this.colAttendentName.Name = "colAttendentName";
+            this.colAttendentName.ReadOnly = true;
+            this.colAttendentName.Width = 200;
+            // 
+            // colDOB
+            // 
+            this.colDOB.DataPropertyName = "PatientDOB";
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.colDOB.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDOB.HeaderText = "Date of Birth";
+            this.colDOB.Name = "colDOB";
+            this.colDOB.ReadOnly = true;
+            this.colDOB.Width = 150;
+            // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "PatientGender";
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.colGender.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colGender.HeaderText = "Gender";
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            this.colGender.Width = 150;
+            // 
+            // colDateCreated
+            // 
+            this.colDateCreated.DataPropertyName = "AdmissionDate";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colDateCreated.HeaderText = "Entry Date";
+            this.colDateCreated.Name = "colDateCreated";
+            this.colDateCreated.ReadOnly = true;
+            this.colDateCreated.Width = 150;
             // 
             // gbMedicalInfo
             // 
@@ -1067,24 +1127,28 @@ namespace DashboardRHC
             this.colMedicineName.DataPropertyName = "MedicineName";
             this.colMedicineName.HeaderText = "Medicine Name";
             this.colMedicineName.Name = "colMedicineName";
+            this.colMedicineName.Width = 180;
             // 
             // colDosage
             // 
             this.colDosage.DataPropertyName = "Dosage";
             this.colDosage.HeaderText = "Dosage";
             this.colDosage.Name = "colDosage";
+            this.colDosage.Width = 150;
             // 
             // colRemarks
             // 
             this.colRemarks.DataPropertyName = "Remarks";
             this.colRemarks.HeaderText = "Remarks";
             this.colRemarks.Name = "colRemarks";
+            this.colRemarks.Width = 180;
             // 
             // colAdvisedByDateTime
             // 
             this.colAdvisedByDateTime.DataPropertyName = "CreatedDateTime";
             this.colAdvisedByDateTime.HeaderText = "Date Time";
             this.colAdvisedByDateTime.Name = "colAdvisedByDateTime";
+            this.colAdvisedByDateTime.Width = 150;
             // 
             // txtMedicineName
             // 
@@ -1162,7 +1226,7 @@ namespace DashboardRHC
             this.btnNewLabTest.Location = new System.Drawing.Point(749, 47);
             this.btnNewLabTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNewLabTest.Name = "btnNewLabTest";
-            this.btnNewLabTest.Size = new System.Drawing.Size(66, 27);
+            this.btnNewLabTest.Size = new System.Drawing.Size(66, 24);
             this.btnNewLabTest.TabIndex = 8;
             this.btnNewLabTest.Text = "New";
             this.btnNewLabTest.UseVisualStyleBackColor = true;
@@ -1239,6 +1303,7 @@ namespace DashboardRHC
             // 
             this.colLabTestName.HeaderText = "Test Name";
             this.colLabTestName.Name = "colLabTestName";
+            this.colLabTestName.Width = 150;
             // 
             // colNormalValue
             // 
@@ -1254,11 +1319,13 @@ namespace DashboardRHC
             // 
             this.colDateTime.HeaderText = "Date Time";
             this.colDateTime.Name = "colDateTime";
+            this.colDateTime.Width = 120;
             // 
             // colAdvisedByID
             // 
             this.colAdvisedByID.HeaderText = "Advised By";
             this.colAdvisedByID.Name = "colAdvisedByID";
+            this.colAdvisedByID.Width = 150;
             // 
             // txtTestName
             // 
@@ -1325,28 +1392,6 @@ namespace DashboardRHC
             this.dgvPatientObservationHistory.RowTemplate.Height = 25;
             this.dgvPatientObservationHistory.Size = new System.Drawing.Size(454, 428);
             this.dgvPatientObservationHistory.TabIndex = 9;
-            // 
-            // colStaffObservationID
-            // 
-            this.colStaffObservationID.HeaderText = "Staff Observation";
-            this.colStaffObservationID.Name = "colStaffObservationID";
-            this.colStaffObservationID.Visible = false;
-            // 
-            // colObservationDetail
-            // 
-            this.colObservationDetail.HeaderText = "Observation Details";
-            this.colObservationDetail.Name = "colObservationDetail";
-            this.colObservationDetail.Width = 250;
-            // 
-            // colDoctor
-            // 
-            this.colDoctor.HeaderText = "Doctor";
-            this.colDoctor.Name = "colDoctor";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Date Time";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // txtObservationPatientName
             // 
@@ -1433,65 +1478,31 @@ namespace DashboardRHC
             this.cmbDoctor.Size = new System.Drawing.Size(369, 23);
             this.cmbDoctor.TabIndex = 0;
             // 
-            // colAdmittedPatientID
+            // colStaffObservationID
             // 
-            this.colAdmittedPatientID.DataPropertyName = "PatientID";
-            this.colAdmittedPatientID.DividerWidth = 50;
-            this.colAdmittedPatientID.HeaderText = "PatientID";
-            this.colAdmittedPatientID.Name = "colAdmittedPatientID";
-            this.colAdmittedPatientID.ReadOnly = true;
-            this.colAdmittedPatientID.Visible = false;
-            this.colAdmittedPatientID.Width = 105;
+            this.colStaffObservationID.DataPropertyName = "StaffObservationID";
+            this.colStaffObservationID.HeaderText = "Staff Observation ID";
+            this.colStaffObservationID.Name = "colStaffObservationID";
+            this.colStaffObservationID.Visible = false;
             // 
-            // colPatientName
+            // colObservationDetail
             // 
-            this.colPatientName.DataPropertyName = "PatientName";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.colPatientName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colPatientName.HeaderText = "Patient Name";
-            this.colPatientName.Name = "colPatientName";
-            this.colPatientName.ReadOnly = true;
-            this.colPatientName.Width = 202;
+            this.colObservationDetail.DataPropertyName = "StaffObservationDetails";
+            this.colObservationDetail.HeaderText = "Observation Details";
+            this.colObservationDetail.Name = "colObservationDetail";
+            this.colObservationDetail.Width = 250;
             // 
-            // colAttendentName
+            // colDoctor
             // 
-            this.colAttendentName.DataPropertyName = "AttendentName";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.colAttendentName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colAttendentName.HeaderText = "Attendent Name";
-            this.colAttendentName.Name = "colAttendentName";
-            this.colAttendentName.ReadOnly = true;
-            this.colAttendentName.Width = 200;
+            this.colDoctor.DataPropertyName = "StaffObserationByID";
+            this.colDoctor.HeaderText = "Doctor";
+            this.colDoctor.Name = "colDoctor";
             // 
-            // colDOB
+            // dataGridViewTextBoxColumn1
             // 
-            this.colDOB.DataPropertyName = "PatientDOB";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.colDOB.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colDOB.HeaderText = "Date of Birth";
-            this.colDOB.Name = "colDOB";
-            this.colDOB.ReadOnly = true;
-            this.colDOB.Width = 150;
-            // 
-            // colGender
-            // 
-            this.colGender.DataPropertyName = "PatientGender";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.colGender.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colGender.HeaderText = "Gender";
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            this.colGender.Width = 150;
-            // 
-            // colDateCreated
-            // 
-            this.colDateCreated.DataPropertyName = "AdmissionDate";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colDateCreated.HeaderText = "Entry Date";
-            this.colDateCreated.Name = "colDateCreated";
-            this.colDateCreated.ReadOnly = true;
-            this.colDateCreated.Width = 150;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedDateTime";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Date Time";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // PatientControl
             // 
@@ -1579,11 +1590,6 @@ namespace DashboardRHC
         private System.Windows.Forms.TextBox txtLabTestRemarks;
         private System.Windows.Forms.Label lblTestRemarks;
         private System.Windows.Forms.Button btnPatientLabTestSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLabTestName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNormalValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPatientValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByID;
         private System.Windows.Forms.Button btnNewLabTest;
         private System.Windows.Forms.TabPage tpgMedicine;
         private System.Windows.Forms.Button btnNewMedicine;
@@ -1645,14 +1651,6 @@ namespace DashboardRHC
         private System.Windows.Forms.Label lblObservationPatientName;
         private System.Windows.Forms.DataGridView dgvPatientObservationHistory;
         private System.Windows.Forms.Label lblPatientObservationHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStaffObservationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservationDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByDateTime;
         private System.Windows.Forms.DataGridView dgvPatientList;
         private System.Windows.Forms.Button btnSaveVitals;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAdmittedPatientID;
@@ -1661,5 +1659,18 @@ namespace DashboardRHC
         private System.Windows.Forms.DataGridViewTextBoxColumn colDOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLabTestName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNormalValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPatientValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMedicineName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStaffObservationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservationDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

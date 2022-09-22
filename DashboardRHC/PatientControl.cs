@@ -82,6 +82,7 @@ namespace DashboardRHC
                 cmbDoctor.ValueMember = "StaffID";
                 cmbDoctor.DisplayMember = "StaffName";
                 List<StaffObservationEntity> observation_history = StaffObservationController.GetPatientObservationHistory(current_patient_id);
+                dgvPatientList.AutoGenerateColumns = false;
                 dgvPatientObservationHistory.DataSource = observation_history;
             }
         }
@@ -310,8 +311,11 @@ namespace DashboardRHC
 
             if ( new_id > 0)
             {
+                txtPatientName.Tag = new_id;
+                btnSaveVitals.Enabled= true;
                 MessageBox.Show("New Patient Saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private void btnNewMedicine_Click(object sender, EventArgs e)
@@ -401,7 +405,7 @@ namespace DashboardRHC
 
             if (PatientLabTestController.PatientLabTestInsertUpdate(new_patient_labtest) > 0)
             {
-                MessageBox.Show("value is added");
+                MessageBox.Show("Value is added to patient Record.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -472,7 +476,8 @@ namespace DashboardRHC
                 return;
             }
             List<AdmittedPatientEntity> patients = AdmittedPatientController.GetPatientByPhoneOrCNIC(search_string);
-            
+            dgvPatientList.DataSource = null;
+            dgvPatientList.Rows.Clear();
             if (patients.Count > 0)
             {
                 dgvPatientList.AutoGenerateColumns = false;
@@ -484,6 +489,12 @@ namespace DashboardRHC
         private void dgvPatientList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             long patient_id = Convert.ToInt64(dgvPatientList.Rows[e.RowIndex].Cells[0].Value);
+            
+            if (patient_id == 0)
+                return;
+
+            btnSaveVitals.Enabled = true;
+
             AdmittedPatientEntity patient = AdmittedPatientController.AdmittedPatientSelectByID(patient_id);
             if (patient != null)
             {
