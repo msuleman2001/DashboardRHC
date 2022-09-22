@@ -36,16 +36,11 @@ namespace DashboardRHC
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tpgPatientPersonalData = new System.Windows.Forms.TabPage();
+            this.btnSaveVitals = new System.Windows.Forms.Button();
             this.btnVisitHistory = new System.Windows.Forms.Button();
             this.btnSavePatientInfo = new System.Windows.Forms.Button();
             this.gbPatientList = new System.Windows.Forms.GroupBox();
             this.dgvPatientList = new System.Windows.Forms.DataGridView();
-            this.colAdmittedPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAttendentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbMedicalInfo = new System.Windows.Forms.GroupBox();
             this.txtBloodPressure = new System.Windows.Forms.MaskedTextBox();
             this.txtHeartRate = new System.Windows.Forms.TextBox();
@@ -154,7 +149,12 @@ namespace DashboardRHC
             this.lblObservation = new System.Windows.Forms.Label();
             this.lblDoctor = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
-            this.btnSaveVitals = new System.Windows.Forms.Button();
+            this.colAdmittedPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAttendentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPatient.SuspendLayout();
             this.tpgPatientPersonalData.SuspendLayout();
             this.gbPatientList.SuspendLayout();
@@ -201,7 +201,7 @@ namespace DashboardRHC
             // 
             // tpgPatientPersonalData
             // 
-            this.tpgPatientPersonalData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.tpgPatientPersonalData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.tpgPatientPersonalData.Controls.Add(this.btnSaveVitals);
             this.tpgPatientPersonalData.Controls.Add(this.btnVisitHistory);
             this.tpgPatientPersonalData.Controls.Add(this.btnSavePatientInfo);
@@ -216,8 +216,24 @@ namespace DashboardRHC
             this.tpgPatientPersonalData.TabIndex = 0;
             this.tpgPatientPersonalData.Text = "Patien Personal Data";
             // 
+            // btnSaveVitals
+            // 
+            this.btnSaveVitals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
+            this.btnSaveVitals.Enabled = false;
+            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
+            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
+            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSaveVitals.Name = "btnSaveVitals";
+            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
+            this.btnSaveVitals.TabIndex = 12;
+            this.btnSaveVitals.Text = "Save Vitals";
+            this.btnSaveVitals.UseVisualStyleBackColor = false;
+            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
+            // 
             // btnVisitHistory
             // 
+            this.btnVisitHistory.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnVisitHistory.Enabled = false;
             this.btnVisitHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVisitHistory.ForeColor = System.Drawing.Color.White;
@@ -227,11 +243,12 @@ namespace DashboardRHC
             this.btnVisitHistory.Size = new System.Drawing.Size(88, 27);
             this.btnVisitHistory.TabIndex = 11;
             this.btnVisitHistory.Text = "Visit History";
-            this.btnVisitHistory.UseVisualStyleBackColor = true;
+            this.btnVisitHistory.UseVisualStyleBackColor = false;
             this.btnVisitHistory.Click += new System.EventHandler(this.btnVisitHistory_Click);
             // 
             // btnSavePatientInfo
             // 
+            this.btnSavePatientInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnSavePatientInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePatientInfo.ForeColor = System.Drawing.Color.White;
             this.btnSavePatientInfo.Location = new System.Drawing.Point(308, 388);
@@ -240,13 +257,13 @@ namespace DashboardRHC
             this.btnSavePatientInfo.Size = new System.Drawing.Size(136, 27);
             this.btnSavePatientInfo.TabIndex = 10;
             this.btnSavePatientInfo.Text = "Save Patient Info";
-            this.btnSavePatientInfo.UseVisualStyleBackColor = true;
+            this.btnSavePatientInfo.UseVisualStyleBackColor = false;
             this.btnSavePatientInfo.Click += new System.EventHandler(this.btnSavePatientInfo_Click);
             // 
             // gbPatientList
             // 
             this.gbPatientList.Controls.Add(this.dgvPatientList);
-            this.gbPatientList.ForeColor = System.Drawing.Color.White;
+            this.gbPatientList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.gbPatientList.Location = new System.Drawing.Point(26, 430);
             this.gbPatientList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbPatientList.Name = "gbPatientList";
@@ -258,6 +275,7 @@ namespace DashboardRHC
             // 
             // dgvPatientList
             // 
+            this.dgvPatientList.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvPatientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatientList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colAdmittedPatientID,
@@ -275,61 +293,6 @@ namespace DashboardRHC
             this.dgvPatientList.TabIndex = 0;
             this.dgvPatientList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellContentClick);
             // 
-            // colAdmittedPatientID
-            // 
-            this.colAdmittedPatientID.DataPropertyName = "PatientID";
-            this.colAdmittedPatientID.HeaderText = "PatientID";
-            this.colAdmittedPatientID.Name = "colAdmittedPatientID";
-            this.colAdmittedPatientID.ReadOnly = true;
-            this.colAdmittedPatientID.Visible = false;
-            // 
-            // colPatientName
-            // 
-            this.colPatientName.DataPropertyName = "PatientName";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.colPatientName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colPatientName.HeaderText = "Patient Name";
-            this.colPatientName.Name = "colPatientName";
-            this.colPatientName.ReadOnly = true;
-            this.colPatientName.Width = 200;
-            // 
-            // colAttendentName
-            // 
-            this.colAttendentName.DataPropertyName = "AttendentName";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.colAttendentName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colAttendentName.HeaderText = "Attendent Name";
-            this.colAttendentName.Name = "colAttendentName";
-            this.colAttendentName.ReadOnly = true;
-            this.colAttendentName.Width = 200;
-            // 
-            // colDOB
-            // 
-            this.colDOB.DataPropertyName = "PatientDOB";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.colDOB.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colDOB.HeaderText = "Date of Birth";
-            this.colDOB.Name = "colDOB";
-            this.colDOB.ReadOnly = true;
-            // 
-            // colGender
-            // 
-            this.colGender.DataPropertyName = "PatientGender";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.colGender.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colGender.HeaderText = "Gender";
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            // 
-            // colDateCreated
-            // 
-            this.colDateCreated.DataPropertyName = "AdmissionDate";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colDateCreated.HeaderText = "Entry Date";
-            this.colDateCreated.Name = "colDateCreated";
-            this.colDateCreated.ReadOnly = true;
-            // 
             // gbMedicalInfo
             // 
             this.gbMedicalInfo.Controls.Add(this.txtBloodPressure);
@@ -344,7 +307,7 @@ namespace DashboardRHC
             this.gbMedicalInfo.Controls.Add(this.lblMedicalInfoRemarks);
             this.gbMedicalInfo.Controls.Add(this.lblWeight);
             this.gbMedicalInfo.Controls.Add(this.lblHeight);
-            this.gbMedicalInfo.ForeColor = System.Drawing.Color.White;
+            this.gbMedicalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.gbMedicalInfo.Location = new System.Drawing.Point(475, 22);
             this.gbMedicalInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbMedicalInfo.Name = "gbMedicalInfo";
@@ -377,6 +340,7 @@ namespace DashboardRHC
             // lblHeartRate
             // 
             this.lblHeartRate.AutoSize = true;
+            this.lblHeartRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblHeartRate.Location = new System.Drawing.Point(37, 152);
             this.lblHeartRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeartRate.Name = "lblHeartRate";
@@ -387,6 +351,7 @@ namespace DashboardRHC
             // lblBloodPressure
             // 
             this.lblBloodPressure.AutoSize = true;
+            this.lblBloodPressure.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblBloodPressure.Location = new System.Drawing.Point(15, 121);
             this.lblBloodPressure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBloodPressure.Name = "lblBloodPressure";
@@ -407,6 +372,7 @@ namespace DashboardRHC
             // lblTemperature
             // 
             this.lblTemperature.AutoSize = true;
+            this.lblTemperature.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblTemperature.Location = new System.Drawing.Point(28, 90);
             this.lblTemperature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemperature.Name = "lblTemperature";
@@ -447,6 +413,7 @@ namespace DashboardRHC
             // lblMedicalInfoRemarks
             // 
             this.lblMedicalInfoRemarks.AutoSize = true;
+            this.lblMedicalInfoRemarks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblMedicalInfoRemarks.Location = new System.Drawing.Point(49, 182);
             this.lblMedicalInfoRemarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMedicalInfoRemarks.Name = "lblMedicalInfoRemarks";
@@ -457,6 +424,7 @@ namespace DashboardRHC
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
+            this.lblWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblWeight.Location = new System.Drawing.Point(30, 28);
             this.lblWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWeight.Name = "lblWeight";
@@ -467,6 +435,7 @@ namespace DashboardRHC
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
+            this.lblHeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblHeight.Location = new System.Drawing.Point(41, 59);
             this.lblHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeight.Name = "lblHeight";
@@ -496,7 +465,7 @@ namespace DashboardRHC
             this.gbPersonalInfo.Controls.Add(this.txtAttendentName);
             this.gbPersonalInfo.Controls.Add(this.lblPatientName);
             this.gbPersonalInfo.Controls.Add(this.txtPatientName);
-            this.gbPersonalInfo.ForeColor = System.Drawing.Color.White;
+            this.gbPersonalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.gbPersonalInfo.Location = new System.Drawing.Point(26, 22);
             this.gbPersonalInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbPersonalInfo.Name = "gbPersonalInfo";
@@ -530,6 +499,7 @@ namespace DashboardRHC
             // lblPatientPersonaleInfoRemarks
             // 
             this.lblPatientPersonaleInfoRemarks.AutoSize = true;
+            this.lblPatientPersonaleInfoRemarks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblPatientPersonaleInfoRemarks.Location = new System.Drawing.Point(56, 272);
             this.lblPatientPersonaleInfoRemarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientPersonaleInfoRemarks.Name = "lblPatientPersonaleInfoRemarks";
@@ -600,6 +570,7 @@ namespace DashboardRHC
             // lblPatientCNIC
             // 
             this.lblPatientCNIC.AutoSize = true;
+            this.lblPatientCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblPatientCNIC.Location = new System.Drawing.Point(72, 85);
             this.lblPatientCNIC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientCNIC.Name = "lblPatientCNIC";
@@ -629,6 +600,7 @@ namespace DashboardRHC
             // lblGender
             // 
             this.lblGender.AutoSize = true;
+            this.lblGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblGender.Location = new System.Drawing.Point(64, 180);
             this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGender.Name = "lblGender";
@@ -639,6 +611,7 @@ namespace DashboardRHC
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblAddress.Location = new System.Drawing.Point(61, 212);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
@@ -658,6 +631,7 @@ namespace DashboardRHC
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
+            this.lblDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblDOB.Location = new System.Drawing.Point(78, 149);
             this.lblDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDOB.Name = "lblDOB";
@@ -668,6 +642,7 @@ namespace DashboardRHC
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
+            this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblPhone.Location = new System.Drawing.Point(69, 120);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
@@ -678,6 +653,7 @@ namespace DashboardRHC
             // lblAttendentName
             // 
             this.lblAttendentName.AutoSize = true;
+            this.lblAttendentName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblAttendentName.Location = new System.Drawing.Point(15, 55);
             this.lblAttendentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAttendentName.Name = "lblAttendentName";
@@ -696,6 +672,7 @@ namespace DashboardRHC
             // lblPatientName
             // 
             this.lblPatientName.AutoSize = true;
+            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
             this.lblPatientName.Location = new System.Drawing.Point(30, 24);
             this.lblPatientName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPatientName.Name = "lblPatientName";
@@ -726,6 +703,7 @@ namespace DashboardRHC
             // 
             // dgvPatientVisitVitals
             // 
+            this.dgvPatientVisitVitals.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.dgvPatientVisitVitals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatientVisitVitals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colVisitDate,
@@ -1472,19 +1450,62 @@ namespace DashboardRHC
             this.cmbDoctor.Size = new System.Drawing.Size(369, 23);
             this.cmbDoctor.TabIndex = 0;
             // 
-            // btnSaveVitals
+            // colAdmittedPatientID
             // 
-            this.btnSaveVitals.Enabled = false;
-            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
-            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
-            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSaveVitals.Name = "btnSaveVitals";
-            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
-            this.btnSaveVitals.TabIndex = 12;
-            this.btnSaveVitals.Text = "Save Vitals";
-            this.btnSaveVitals.UseVisualStyleBackColor = true;
-            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
+            this.colAdmittedPatientID.DataPropertyName = "PatientID";
+            this.colAdmittedPatientID.HeaderText = "PatientID";
+            this.colAdmittedPatientID.Name = "colAdmittedPatientID";
+            this.colAdmittedPatientID.ReadOnly = true;
+            this.colAdmittedPatientID.Visible = false;
+            // 
+            // colPatientName
+            // 
+            this.colPatientName.DataPropertyName = "PatientName";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.colPatientName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colPatientName.HeaderText = "Patient Name";
+            this.colPatientName.Name = "colPatientName";
+            this.colPatientName.ReadOnly = true;
+            this.colPatientName.Width = 200;
+            // 
+            // colAttendentName
+            // 
+            this.colAttendentName.DataPropertyName = "AttendentName";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.colAttendentName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colAttendentName.HeaderText = "Attendent Name";
+            this.colAttendentName.Name = "colAttendentName";
+            this.colAttendentName.ReadOnly = true;
+            this.colAttendentName.Width = 200;
+            // 
+            // colDOB
+            // 
+            this.colDOB.DataPropertyName = "PatientDOB";
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.colDOB.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDOB.HeaderText = "Date of Birth";
+            this.colDOB.Name = "colDOB";
+            this.colDOB.ReadOnly = true;
+            this.colDOB.Width = 200;
+            // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "PatientGender";
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.colGender.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colGender.HeaderText = "Gender";
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            // 
+            // colDateCreated
+            // 
+            this.colDateCreated.DataPropertyName = "AdmissionDate";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colDateCreated.HeaderText = "Entry Date";
+            this.colDateCreated.Name = "colDateCreated";
+            this.colDateCreated.ReadOnly = true;
+            this.colDateCreated.Width = 155;
             // 
             // PatientControl
             // 

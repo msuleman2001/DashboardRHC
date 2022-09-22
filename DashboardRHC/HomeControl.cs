@@ -48,6 +48,20 @@ namespace DashboardRHC
             CollectData();
         }
 
+        private void picStaff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlHomeBody_Paint(object sender, PaintEventArgs e)
+        {
+
+
+
+
+
+        }
+
         private void CollectData()
         {
             try

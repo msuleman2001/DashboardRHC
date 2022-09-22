@@ -43,17 +43,18 @@
             // lblMedicineName
             // 
             this.lblMedicineName.AutoSize = true;
-            this.lblMedicineName.ForeColor = System.Drawing.Color.White;
-            this.lblMedicineName.Location = new System.Drawing.Point(38, 40);
+            this.lblMedicineName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMedicineName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
+            this.lblMedicineName.Location = new System.Drawing.Point(34, 37);
             this.lblMedicineName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMedicineName.Name = "lblMedicineName";
-            this.lblMedicineName.Size = new System.Drawing.Size(91, 15);
+            this.lblMedicineName.Size = new System.Drawing.Size(128, 18);
             this.lblMedicineName.TabIndex = 0;
             this.lblMedicineName.Text = "Medicine Name";
             // 
             // txtMedicineName
             // 
-            this.txtMedicineName.Location = new System.Drawing.Point(140, 37);
+            this.txtMedicineName.Location = new System.Drawing.Point(170, 37);
             this.txtMedicineName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtMedicineName.Name = "txtMedicineName";
             this.txtMedicineName.Size = new System.Drawing.Size(392, 23);
@@ -61,7 +62,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(140, 95);
+            this.txtRemarks.Location = new System.Drawing.Point(170, 95);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -71,18 +72,20 @@
             // lblRemarks
             // 
             this.lblRemarks.AutoSize = true;
-            this.lblRemarks.ForeColor = System.Drawing.Color.White;
-            this.lblRemarks.Location = new System.Drawing.Point(77, 98);
+            this.lblRemarks.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRemarks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
+            this.lblRemarks.Location = new System.Drawing.Point(91, 95);
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRemarks.Name = "lblRemarks";
-            this.lblRemarks.Size = new System.Drawing.Size(52, 15);
+            this.lblRemarks.Size = new System.Drawing.Size(71, 18);
             this.lblRemarks.TabIndex = 2;
             this.lblRemarks.Text = "Remarks";
             // 
             // gdvMedicine
             // 
+            this.gdvMedicine.BackgroundColor = System.Drawing.Color.LightCyan;
             this.gdvMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvMedicine.Location = new System.Drawing.Point(140, 218);
+            this.gdvMedicine.Location = new System.Drawing.Point(170, 218);
             this.gdvMedicine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gdvMedicine.Name = "gdvMedicine";
             this.gdvMedicine.RowHeadersVisible = false;
@@ -91,33 +94,36 @@
             // 
             // btnSaveMedicine
             // 
+            this.btnSaveMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnSaveMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnSaveMedicine.Location = new System.Drawing.Point(392, 185);
+            this.btnSaveMedicine.Location = new System.Drawing.Point(422, 185);
             this.btnSaveMedicine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSaveMedicine.Name = "btnSaveMedicine";
             this.btnSaveMedicine.Size = new System.Drawing.Size(66, 27);
             this.btnSaveMedicine.TabIndex = 18;
             this.btnSaveMedicine.Text = "Save";
-            this.btnSaveMedicine.UseVisualStyleBackColor = true;
+            this.btnSaveMedicine.UseVisualStyleBackColor = false;
             this.btnSaveMedicine.Click += new System.EventHandler(this.btnSaveMedicine_Click);
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(467, 185);
+            this.btnClose.Location = new System.Drawing.Point(497, 185);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(66, 27);
             this.btnClose.TabIndex = 19;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtPotency
             // 
-            this.txtPotency.Location = new System.Drawing.Point(141, 66);
+            this.txtPotency.Location = new System.Drawing.Point(171, 66);
             this.txtPotency.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPotency.Name = "txtPotency";
             this.txtPotency.Size = new System.Drawing.Size(392, 23);
@@ -126,11 +132,12 @@
             // lblPotency
             // 
             this.lblPotency.AutoSize = true;
-            this.lblPotency.ForeColor = System.Drawing.Color.White;
-            this.lblPotency.Location = new System.Drawing.Point(77, 69);
+            this.lblPotency.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPotency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(96)))), ((int)(((byte)(123)))));
+            this.lblPotency.Location = new System.Drawing.Point(94, 66);
             this.lblPotency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPotency.Name = "lblPotency";
-            this.lblPotency.Size = new System.Drawing.Size(50, 15);
+            this.lblPotency.Size = new System.Drawing.Size(68, 18);
             this.lblPotency.TabIndex = 20;
             this.lblPotency.Text = "Potency";
             // 
@@ -138,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.txtPotency);
             this.Controls.Add(this.lblPotency);
