@@ -49,9 +49,7 @@
     <Compile Update="PatientIllnessControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="PatientControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="PatientControl.cs" />
     <Compile Update="PatientInsightBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -27,7 +27,8 @@ namespace DashboardRHC
         Dictionary<string, long> symptom_dict = new Dictionary<string, long>();
         bool by_cnic = false;
         bool by_phone = false;
-        int symptom_list_index = -1;   
+        int symptom_list_index = -1;
+        List<SymptomEntity> symptom_list = new List<SymptomEntity>();
 
         public PatientControl()
         {
@@ -55,19 +56,7 @@ namespace DashboardRHC
 
             if (tabPatient.SelectedIndex == 2)
             {
-                  //It will map value to primary key in table; 
-                List<SymptomEntity> symptom_list = SymptomController.SymptomSelectAll();
-                cmbSymptom.DataSource = symptom_list;
-                cmbSymptom.ValueMember = "SymptomID";
-                cmbSymptom.DisplayMember = "SymptomTitle";
-
-                symptom_dict.Clear();
-                lstSymptoms.Items.Clear();
-                foreach (SymptomEntity symptom in symptom_list)
-                {
-                    lstSymptoms.Items.Add(symptom.SymptomTitle);
-                    symptom_dict[symptom.SymptomTitle] = symptom.SymptomID;
-                }
+                LoadSymptoms();
             }
 
             if (tabPatient.SelectedIndex == 5)
@@ -84,6 +73,26 @@ namespace DashboardRHC
                 List<StaffObservationEntity> observation_history = StaffObservationController.GetPatientObservationHistory(current_patient_id);
                 dgvPatientList.AutoGenerateColumns = false;
                 dgvPatientObservationHistory.DataSource = observation_history;
+            }
+        }
+
+        private void LoadSymptoms()
+        {
+            //It will map value to primary key in table; 
+            cmbSymptom.DataSource = symptom_list;
+            cmbSymptom.ValueMember = "SymptomID";
+            cmbSymptom.DisplayMember = "SymptomTitle";
+
+            if (symptom_list.Count == 0)
+            {
+                symptom_list = SymptomController.SymptomSelectAll();
+                //symptom_dict.Clear();
+                foreach (SymptomEntity symptom in symptom_list)
+                {
+                    lstSymptoms.Items.Add(symptom.SymptomTitle);
+                    //symptom_dict[symptom.SymptomTitle] = symptom.SymptomID;//add to dictionary
+                    symptom_dict.Add(symptom.SymptomTitle, symptom.SymptomID);
+                }
             }
         }
 
@@ -125,14 +134,17 @@ namespace DashboardRHC
                 checked_items.Remove(lstSymptoms.SelectedItem);
 
             string symptom_name = lstSymptoms.Items[e.Index].ToString();
-            long symptom_id = symptom_dict[symptom_name];
+            //long symptom_id = symptom_dict[symptom_name];
 
             scSymptoms.Panel2.Enabled = e.NewValue.Equals(CheckState.Checked) ? true : false;
             JProperty patient_symptom_prop = new JProperty(symptom_name);
             current_symptom = patient_symptom_prop;
 
             if (e.NewValue == CheckState.Checked)
-                patient_symptom_json.Add(patient_symptom_prop);
+            {
+                if (patient_symptom_json[patient_symptom_prop.Name] == null)
+                    patient_symptom_json.Add(patient_symptom_prop);
+            }
             if (e.NewValue == CheckState.Unchecked)
                 patient_symptom_json.Remove(patient_symptom_prop.Name);
         }
@@ -142,30 +154,27 @@ namespace DashboardRHC
             CheckBox check_box = sender as CheckBox;
             string category_name = check_box.Parent.Text;
 
-            //if (!ExistsProperty(current_symptom, category_name))
-            //{
-                //JObject category_object = new JObject();
-                JProperty category = new JProperty(category_name);
-                JArray values = new JArray();
-                foreach (Control ctrl in check_box.Parent.Controls)
-                {
-                    CheckBox box = ctrl as CheckBox;
-                    if (box.Checked)
-                        values.Add(box.Text);
-                }
-                category.Value = values;
+            JProperty category = new JProperty(category_name);
+            JArray values = new JArray();
+            foreach (Control ctrl in check_box.Parent.Controls)
+            {
+                CheckBox box = ctrl as CheckBox;
+                if (box.Checked)
+                    values.Add(box.Text);
+            }
+            category.Value = values;
 
-                JObject updated_symptom = new JObject();
-                updated_symptom.Add(category);
-                foreach (JToken category_token in patient_symptom_json[current_symptom.Name].Children())
-                {
-                    JProperty prop = category_token as JProperty;
-                    if (updated_symptom[prop.Name] == null)
-                        updated_symptom.Add(prop);
-                }
+            JObject updated_symptom = new JObject();
+            updated_symptom.Add(category);
+
+            foreach (JToken category_token in patient_symptom_json[current_symptom.Name].Children())
+            {
+                JProperty prop = category_token as JProperty;
+                if (updated_symptom[prop.Name] == null)
+                    updated_symptom.Add(prop);
+            }
                                     
-                patient_symptom_json.Property(current_symptom.Name).Value = updated_symptom;
-            //}
+            patient_symptom_json.Property(current_symptom.Name).Value = updated_symptom;
         }
 
         private void Illness_CheckedChange(object sender, EventArgs e)
@@ -198,9 +207,12 @@ namespace DashboardRHC
             new_symptom.SymptomRemarks = "NA";
             new_symptom.SymptomEnabled = "1";
             new_symptom.CreatedByID = Program.AdminID;
-            
+
             if (SymptomController.SymptomInsertUpdate(new_symptom) > 0)
+            {
                 System.Windows.Forms.MessageBox.Show("Value added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadSymptoms();
+            }  
         }
 
         private void btnAddCategoryAndValue_Click(object sender, EventArgs e)
@@ -237,18 +249,26 @@ namespace DashboardRHC
 
         private void btnAddSymptom_Click(object sender, EventArgs e)
         {
-            PatientSymptomEntity add_symptom = new PatientSymptomEntity();
-            add_symptom.PatientSymptomID = 0;
-            add_symptom.PatientID = Convert.ToInt64(txtPatientName.Tag);
-            add_symptom.SymptomID = Convert.ToInt64(txtCategoryName.Text);
-            add_symptom.PatientSymptomValue = txtCategoryAndValues.Text;
-            add_symptom.DateCreated = DateTime.Now;
-            add_symptom.CreatedByID = Program.AdminID;
-            add_symptom.Remarks = txtMedicalInfoRemarks.Text;
-
-            if (PatientSymptomController.PatientSymptomInsertUpdate(add_symptom) > 0)
+            int added_symptoms = 0;
+            foreach (object checked_item in checked_items)
             {
-                MessageBox.Show("Value is added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                long symptom_id = symptom_dict[checked_item.ToString()];
+                PatientSymptomEntity add_symptom = new PatientSymptomEntity();
+                add_symptom.PatientSymptomID = 0;
+                add_symptom.PatientID = Convert.ToInt64(txtPatientName.Tag);
+                add_symptom.SymptomID = symptom_id;
+                add_symptom.PatientSymptomValue = patient_symptom_json[checked_item.ToString()].ToString().Replace("\r", "");
+                add_symptom.PatientSymptomValue = add_symptom.PatientSymptomValue.Replace("\n", "");
+                add_symptom.DateCreated = DateTime.Now;
+                add_symptom.CreatedByID = Program.AdminID;
+                add_symptom.Remarks = txtMedicalInfoRemarks.Text;
+                long new_id = PatientSymptomController.PatientSymptomInsertUpdate(add_symptom);
+                if (new_id > 0)
+                    added_symptoms++;
+            }
+            if (added_symptoms > 0)
+            {
+                MessageBox.Show(added_symptoms + " Symptoms are added.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -313,6 +333,8 @@ namespace DashboardRHC
             {
                 txtPatientName.Tag = new_id;
                 btnSaveVitals.Enabled= true;
+                btnSavePatientSymptom.Enabled = true;
+                lstSymptoms.Enabled = true;
                 MessageBox.Show("New Patient Saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -494,6 +516,8 @@ namespace DashboardRHC
                 return;
 
             btnSaveVitals.Enabled = true;
+            btnSavePatientSymptom.Enabled = true;
+            lstSymptoms.Enabled = true;
 
             AdmittedPatientEntity patient = AdmittedPatientController.AdmittedPatientSelectByID(patient_id);
             if (patient != null)
@@ -538,6 +562,7 @@ namespace DashboardRHC
 
         private void lstSymptoms_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (checked_items.Find(item => item.ToString() == lstSymptoms.SelectedItem.ToString()) != null)
                 scSymptoms.Panel2.Enabled = true;
             else
@@ -670,7 +695,7 @@ namespace DashboardRHC
                         PatientVitalsController.InsertUpdatePatientVitals(vital);
                     }
                 }
-                MessageBox.Show("Values Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Values Added.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
