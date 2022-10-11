@@ -97,7 +97,7 @@
             this.btnSaveMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(191)))), ((int)(((byte)(193)))));
             this.btnSaveMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnSaveMedicine.Location = new System.Drawing.Point(422, 185);
+            this.btnSaveMedicine.Location = new System.Drawing.Point(416, 185);
             this.btnSaveMedicine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSaveMedicine.Name = "btnSaveMedicine";
             this.btnSaveMedicine.Size = new System.Drawing.Size(66, 27);
