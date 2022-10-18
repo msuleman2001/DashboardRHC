@@ -36,6 +36,7 @@ namespace DashboardRHC
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tpgPatientPersonalData = new System.Windows.Forms.TabPage();
+            this.btnSaveVitals = new System.Windows.Forms.Button();
             this.btnVisitHistory = new System.Windows.Forms.Button();
             this.btnSavePatientInfo = new System.Windows.Forms.Button();
             this.gbPatientList = new System.Windows.Forms.GroupBox();
@@ -154,7 +155,6 @@ namespace DashboardRHC
             this.lblObservation = new System.Windows.Forms.Label();
             this.lblDoctor = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
-            this.btnSaveVitals = new System.Windows.Forms.Button();
             this.tabPatient.SuspendLayout();
             this.tpgPatientPersonalData.SuspendLayout();
             this.gbPatientList.SuspendLayout();
@@ -216,6 +216,20 @@ namespace DashboardRHC
             this.tpgPatientPersonalData.TabIndex = 0;
             this.tpgPatientPersonalData.Text = "Patien Personal Data";
             // 
+            // btnSaveVitals
+            // 
+            this.btnSaveVitals.Enabled = false;
+            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
+            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
+            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSaveVitals.Name = "btnSaveVitals";
+            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
+            this.btnSaveVitals.TabIndex = 12;
+            this.btnSaveVitals.Text = "Save Vitals";
+            this.btnSaveVitals.UseVisualStyleBackColor = true;
+            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
+            // 
             // btnVisitHistory
             // 
             this.btnVisitHistory.Enabled = false;
@@ -247,7 +261,7 @@ namespace DashboardRHC
             // 
             this.gbPatientList.Controls.Add(this.dgvPatientList);
             this.gbPatientList.ForeColor = System.Drawing.Color.White;
-            this.gbPatientList.Location = new System.Drawing.Point(26, 430);
+            this.gbPatientList.Location = new System.Drawing.Point(26, 432);
             this.gbPatientList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbPatientList.Name = "gbPatientList";
             this.gbPatientList.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -274,14 +288,17 @@ namespace DashboardRHC
             this.dgvPatientList.Size = new System.Drawing.Size(856, 227);
             this.dgvPatientList.TabIndex = 0;
             this.dgvPatientList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellContentClick);
+            this.dgvPatientList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientList_CellContentClick_1);
             // 
             // colAdmittedPatientID
             // 
             this.colAdmittedPatientID.DataPropertyName = "PatientID";
+            this.colAdmittedPatientID.DividerWidth = 50;
             this.colAdmittedPatientID.HeaderText = "PatientID";
             this.colAdmittedPatientID.Name = "colAdmittedPatientID";
             this.colAdmittedPatientID.ReadOnly = true;
             this.colAdmittedPatientID.Visible = false;
+            this.colAdmittedPatientID.Width = 105;
             // 
             // colPatientName
             // 
@@ -291,7 +308,7 @@ namespace DashboardRHC
             this.colPatientName.HeaderText = "Patient Name";
             this.colPatientName.Name = "colPatientName";
             this.colPatientName.ReadOnly = true;
-            this.colPatientName.Width = 200;
+            this.colPatientName.Width = 202;
             // 
             // colAttendentName
             // 
@@ -311,6 +328,7 @@ namespace DashboardRHC
             this.colDOB.HeaderText = "Date of Birth";
             this.colDOB.Name = "colDOB";
             this.colDOB.ReadOnly = true;
+            this.colDOB.Width = 150;
             // 
             // colGender
             // 
@@ -320,6 +338,7 @@ namespace DashboardRHC
             this.colGender.HeaderText = "Gender";
             this.colGender.Name = "colGender";
             this.colGender.ReadOnly = true;
+            this.colGender.Width = 150;
             // 
             // colDateCreated
             // 
@@ -329,6 +348,7 @@ namespace DashboardRHC
             this.colDateCreated.HeaderText = "Entry Date";
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.ReadOnly = true;
+            this.colDateCreated.Width = 150;
             // 
             // gbMedicalInfo
             // 
@@ -559,6 +579,7 @@ namespace DashboardRHC
             this.txtPhone.Size = new System.Drawing.Size(222, 23);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.ValidatingType = typeof(int);
+            this.txtPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtPhone_MaskInputRejected);
             // 
             // btnLoadPatientDataByCNIC
             // 
@@ -877,6 +898,7 @@ namespace DashboardRHC
             this.btnAddCategoryAndValue.TabIndex = 6;
             this.btnAddCategoryAndValue.Text = "Add";
             this.btnAddCategoryAndValue.UseVisualStyleBackColor = true;
+            this.btnAddCategoryAndValue.Click += new System.EventHandler(this.btnAddCategoryAndValue_Click);
             // 
             // txtValues
             // 
@@ -903,8 +925,9 @@ namespace DashboardRHC
             this.btnAddNewSymptom.Name = "btnAddNewSymptom";
             this.btnAddNewSymptom.Size = new System.Drawing.Size(184, 27);
             this.btnAddNewSymptom.TabIndex = 10;
-            this.btnAddNewSymptom.Text = "Save NewSymptoms";
+            this.btnAddNewSymptom.Text = "Save New Symptoms";
             this.btnAddNewSymptom.UseVisualStyleBackColor = true;
+            this.btnAddNewSymptom.Click += new System.EventHandler(this.btnSymptomSave_Click);
             // 
             // lblSymptomTitle
             // 
@@ -919,6 +942,7 @@ namespace DashboardRHC
             // 
             // btnSavePatientSymptom
             // 
+            this.btnSavePatientSymptom.Enabled = false;
             this.btnSavePatientSymptom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePatientSymptom.ForeColor = System.Drawing.Color.White;
             this.btnSavePatientSymptom.Location = new System.Drawing.Point(929, 12);
@@ -962,6 +986,7 @@ namespace DashboardRHC
             // lstSymptoms
             // 
             this.lstSymptoms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstSymptoms.Enabled = false;
             this.lstSymptoms.FormattingEnabled = true;
             this.lstSymptoms.Location = new System.Drawing.Point(0, 0);
             this.lstSymptoms.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1106,24 +1131,28 @@ namespace DashboardRHC
             this.colMedicineName.DataPropertyName = "MedicineName";
             this.colMedicineName.HeaderText = "Medicine Name";
             this.colMedicineName.Name = "colMedicineName";
+            this.colMedicineName.Width = 180;
             // 
             // colDosage
             // 
             this.colDosage.DataPropertyName = "Dosage";
             this.colDosage.HeaderText = "Dosage";
             this.colDosage.Name = "colDosage";
+            this.colDosage.Width = 150;
             // 
             // colRemarks
             // 
             this.colRemarks.DataPropertyName = "Remarks";
             this.colRemarks.HeaderText = "Remarks";
             this.colRemarks.Name = "colRemarks";
+            this.colRemarks.Width = 180;
             // 
             // colAdvisedByDateTime
             // 
             this.colAdvisedByDateTime.DataPropertyName = "CreatedDateTime";
             this.colAdvisedByDateTime.HeaderText = "Date Time";
             this.colAdvisedByDateTime.Name = "colAdvisedByDateTime";
+            this.colAdvisedByDateTime.Width = 150;
             // 
             // txtMedicineName
             // 
@@ -1201,7 +1230,7 @@ namespace DashboardRHC
             this.btnNewLabTest.Location = new System.Drawing.Point(749, 47);
             this.btnNewLabTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNewLabTest.Name = "btnNewLabTest";
-            this.btnNewLabTest.Size = new System.Drawing.Size(66, 27);
+            this.btnNewLabTest.Size = new System.Drawing.Size(66, 24);
             this.btnNewLabTest.TabIndex = 8;
             this.btnNewLabTest.Text = "New";
             this.btnNewLabTest.UseVisualStyleBackColor = true;
@@ -1278,6 +1307,7 @@ namespace DashboardRHC
             // 
             this.colLabTestName.HeaderText = "Test Name";
             this.colLabTestName.Name = "colLabTestName";
+            this.colLabTestName.Width = 150;
             // 
             // colNormalValue
             // 
@@ -1293,11 +1323,13 @@ namespace DashboardRHC
             // 
             this.colDateTime.HeaderText = "Date Time";
             this.colDateTime.Name = "colDateTime";
+            this.colDateTime.Width = 120;
             // 
             // colAdvisedByID
             // 
             this.colAdvisedByID.HeaderText = "Advised By";
             this.colAdvisedByID.Name = "colAdvisedByID";
+            this.colAdvisedByID.Width = 150;
             // 
             // txtTestName
             // 
@@ -1367,23 +1399,27 @@ namespace DashboardRHC
             // 
             // colStaffObservationID
             // 
-            this.colStaffObservationID.HeaderText = "Staff Observation";
+            this.colStaffObservationID.DataPropertyName = "StaffObservationID";
+            this.colStaffObservationID.HeaderText = "Staff Observation ID";
             this.colStaffObservationID.Name = "colStaffObservationID";
             this.colStaffObservationID.Visible = false;
             // 
             // colObservationDetail
             // 
+            this.colObservationDetail.DataPropertyName = "StaffObservationDetails";
             this.colObservationDetail.HeaderText = "Observation Details";
             this.colObservationDetail.Name = "colObservationDetail";
             this.colObservationDetail.Width = 250;
             // 
             // colDoctor
             // 
+            this.colDoctor.DataPropertyName = "StaffObserationByID";
             this.colDoctor.HeaderText = "Doctor";
             this.colDoctor.Name = "colDoctor";
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedDateTime";
             this.dataGridViewTextBoxColumn1.HeaderText = "Date Time";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
@@ -1472,20 +1508,6 @@ namespace DashboardRHC
             this.cmbDoctor.Size = new System.Drawing.Size(369, 23);
             this.cmbDoctor.TabIndex = 0;
             // 
-            // btnSaveVitals
-            // 
-            this.btnSaveVitals.Enabled = false;
-            this.btnSaveVitals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveVitals.ForeColor = System.Drawing.Color.White;
-            this.btnSaveVitals.Location = new System.Drawing.Point(808, 388);
-            this.btnSaveVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSaveVitals.Name = "btnSaveVitals";
-            this.btnSaveVitals.Size = new System.Drawing.Size(88, 27);
-            this.btnSaveVitals.TabIndex = 12;
-            this.btnSaveVitals.Text = "Save Vitals";
-            this.btnSaveVitals.UseVisualStyleBackColor = true;
-            this.btnSaveVitals.Click += new System.EventHandler(this.btnSaveVitals_Click);
-            // 
             // PatientControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1572,11 +1594,6 @@ namespace DashboardRHC
         private System.Windows.Forms.TextBox txtLabTestRemarks;
         private System.Windows.Forms.Label lblTestRemarks;
         private System.Windows.Forms.Button btnPatientLabTestSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLabTestName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNormalValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPatientValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByID;
         private System.Windows.Forms.Button btnNewLabTest;
         private System.Windows.Forms.TabPage tpgMedicine;
         private System.Windows.Forms.Button btnNewMedicine;
@@ -1638,21 +1655,26 @@ namespace DashboardRHC
         private System.Windows.Forms.Label lblObservationPatientName;
         private System.Windows.Forms.DataGridView dgvPatientObservationHistory;
         private System.Windows.Forms.Label lblPatientObservationHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStaffObservationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservationDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByDateTime;
         private System.Windows.Forms.DataGridView dgvPatientList;
+        private System.Windows.Forms.Button btnSaveVitals;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAdmittedPatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPatientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAttendentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateCreated;
-        private System.Windows.Forms.Button btnSaveVitals;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLabTestName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNormalValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPatientValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMedicineName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAdvisedByDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStaffObservationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservationDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

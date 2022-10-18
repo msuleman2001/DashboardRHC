@@ -26,7 +26,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Configuration.Install" />
-    <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="AdminControl.cs">
@@ -50,9 +49,7 @@
     <Compile Update="PatientIllnessControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="PatientControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="PatientControl.cs" />
     <Compile Update="PatientInsightBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,9 +92,12 @@
     <Content Include="devicereading.txt" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Core.System.Configuration.Install" Version="1.1.0" />
+    <PackageReference Include="Core.System.ServiceProcess" Version="2.0.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="6.0.0" />
     <PackageReference Include="Topshelf" Version="4.3.0" />
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.336902">
       <PrivateAssets>all</PrivateAssets>
