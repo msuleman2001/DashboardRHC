@@ -34,6 +34,11 @@
     <Compile Update="ChangePassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="DashboardRHCDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DashboardRHCDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Update="DeviesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -55,6 +60,11 @@
     </Compile>
     <Compile Update="PatientReadings.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Update="StaffControl.cs">
       <SubType>UserControl</SubType>
@@ -96,6 +106,7 @@
     <PackageReference Include="Core.System.ServiceProcess" Version="2.0.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="6.0.0" />
     <PackageReference Include="Topshelf" Version="4.3.0" />
@@ -111,7 +122,23 @@
     <EmbeddedResource Remove="PasswordCreate.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="ReportDefinations\Report1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportDefinations\Report1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Controllers\Controllers.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DashboardRHCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DashboardRHCDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

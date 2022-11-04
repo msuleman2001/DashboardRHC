@@ -82,6 +82,7 @@ namespace DashboardRHC
             this.lblPatientName = new System.Windows.Forms.Label();
             this.txtPatientName = new System.Windows.Forms.TextBox();
             this.tpgVisitHistory = new System.Windows.Forms.TabPage();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dgvPatientVisitVitals = new System.Windows.Forms.DataGridView();
             this.colVisitDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVitalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -736,6 +737,7 @@ namespace DashboardRHC
             // tpgVisitHistory
             // 
             this.tpgVisitHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.tpgVisitHistory.Controls.Add(this.reportViewer1);
             this.tpgVisitHistory.Controls.Add(this.dgvPatientVisitVitals);
             this.tpgVisitHistory.Location = new System.Drawing.Point(4, 24);
             this.tpgVisitHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -745,20 +747,30 @@ namespace DashboardRHC
             this.tpgVisitHistory.TabIndex = 4;
             this.tpgVisitHistory.Text = "Visit History";
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // dgvPatientVisitVitals
             // 
-            this.dgvPatientVisitVitals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatientVisitVitals.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPatientVisitVitals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colVisitDate,
             this.colVitalName,
             this.colVitalValue});
-            this.dgvPatientVisitVitals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPatientVisitVitals.Location = new System.Drawing.Point(4, 3);
             this.dgvPatientVisitVitals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvPatientVisitVitals.Name = "dgvPatientVisitVitals";
             this.dgvPatientVisitVitals.RowHeadersVisible = false;
-            this.dgvPatientVisitVitals.Size = new System.Drawing.Size(1384, 716);
+            this.dgvPatientVisitVitals.Size = new System.Drawing.Size(1370, 700);
             this.dgvPatientVisitVitals.TabIndex = 0;
+            this.dgvPatientVisitVitals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientVisitVitals_CellContentClick);
             // 
             // colVisitDate
             // 
@@ -1676,5 +1688,6 @@ namespace DashboardRHC
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservationDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoctor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

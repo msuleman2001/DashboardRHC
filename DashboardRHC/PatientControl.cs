@@ -45,12 +45,14 @@ namespace DashboardRHC
 
             if (tabPatient.SelectedIndex == 1)
             {
+                reportViewer1.LocalReport.ReportEmbeddedResource = "DashboardRHC.ReportDefinations.Report1.rdlc";
+                reportViewer1.RefreshReport();
                 long patient_id = Convert.ToInt64(txtPatientName.Tag);
                 List<PatientVitalsEntity> patient_vitals = PatientVitalsController.GetPatientVitals(patient_id);
                 if (patient_vitals != null)
                 {
-                    dgvPatientVisitVitals.AutoGenerateColumns = false;
-                    dgvPatientVisitVitals.DataSource = patient_vitals;
+                    //dgvPatientVisitVitals.AutoGenerateColumns = false;
+                    //dgvPatientVisitVitals.DataSource = patient_vitals;
                 }
             }
 
@@ -705,6 +707,11 @@ namespace DashboardRHC
         }
 
         private void dgvPatientList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvPatientVisitVitals_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
