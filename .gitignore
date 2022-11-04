@@ -22,7 +22,7 @@
 
 # git files
 *.gitignore
-
+.gitignore
 # Mono auto generated files
 mono_crash.*
 
