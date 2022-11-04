@@ -62,6 +62,11 @@ namespace DashboardRHC
 
         }
 
+        private void pnlHighlights_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void CollectData()
         {
             try

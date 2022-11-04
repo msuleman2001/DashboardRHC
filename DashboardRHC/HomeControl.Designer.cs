@@ -33,6 +33,7 @@ namespace DashboardRHC
             this.pnlHighlights = new System.Windows.Forms.Panel();
             this.pnlStaffCount = new System.Windows.Forms.Panel();
             this.lblStaffCountValue = new System.Windows.Forms.Label();
+            this.picStaff = new System.Windows.Forms.PictureBox();
             this.lblStaffCountTitle = new System.Windows.Forms.Label();
             this.pnlDeviceCount = new System.Windows.Forms.Panel();
             this.lblDevcesCountValue = new System.Windows.Forms.Label();
@@ -44,15 +45,14 @@ namespace DashboardRHC
             this.picPatientCount = new System.Windows.Forms.PictureBox();
             this.pnlHomeBody = new System.Windows.Forms.Panel();
             this.lblLoadingData = new System.Windows.Forms.Label();
-            this.picStaff = new System.Windows.Forms.PictureBox();
             this.pnlHighlights.SuspendLayout();
             this.pnlStaffCount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStaff)).BeginInit();
             this.pnlDeviceCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDevices)).BeginInit();
             this.pnlPatientCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPatientCount)).BeginInit();
             this.pnlHomeBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHighlights
@@ -67,6 +67,7 @@ namespace DashboardRHC
             this.pnlHighlights.Name = "pnlHighlights";
             this.pnlHighlights.Size = new System.Drawing.Size(933, 231);
             this.pnlHighlights.TabIndex = 0;
+            this.pnlHighlights.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHighlights_Paint);
             // 
             // pnlStaffCount
             // 
@@ -91,6 +92,19 @@ namespace DashboardRHC
             this.lblStaffCountValue.Size = new System.Drawing.Size(60, 42);
             this.lblStaffCountValue.TabIndex = 8;
             this.lblStaffCountValue.Text = "15";
+            // 
+            // picStaff
+            // 
+            this.picStaff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picStaff.Image = ((System.Drawing.Image)(resources.GetObject("picStaff.Image")));
+            this.picStaff.Location = new System.Drawing.Point(96, 84);
+            this.picStaff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picStaff.Name = "picStaff";
+            this.picStaff.Size = new System.Drawing.Size(47, 46);
+            this.picStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStaff.TabIndex = 6;
+            this.picStaff.TabStop = false;
+            this.picStaff.Click += new System.EventHandler(this.picStaff_Click);
             // 
             // lblStaffCountTitle
             // 
@@ -225,19 +239,6 @@ namespace DashboardRHC
             this.lblLoadingData.TabIndex = 2;
             this.lblLoadingData.Text = "Loading...";
             // 
-            // picStaff
-            // 
-            this.picStaff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picStaff.Image = ((System.Drawing.Image)(resources.GetObject("picStaff.Image")));
-            this.picStaff.Location = new System.Drawing.Point(96, 84);
-            this.picStaff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picStaff.Name = "picStaff";
-            this.picStaff.Size = new System.Drawing.Size(47, 46);
-            this.picStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picStaff.TabIndex = 6;
-            this.picStaff.TabStop = false;
-            this.picStaff.Click += new System.EventHandler(this.picStaff_Click);
-            // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -252,6 +253,7 @@ namespace DashboardRHC
             this.pnlHighlights.ResumeLayout(false);
             this.pnlStaffCount.ResumeLayout(false);
             this.pnlStaffCount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStaff)).EndInit();
             this.pnlDeviceCount.ResumeLayout(false);
             this.pnlDeviceCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDevices)).EndInit();
@@ -260,7 +262,6 @@ namespace DashboardRHC
             ((System.ComponentModel.ISupportInitialize)(this.picPatientCount)).EndInit();
             this.pnlHomeBody.ResumeLayout(false);
             this.pnlHomeBody.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picStaff)).EndInit();
             this.ResumeLayout(false);
 
         }
