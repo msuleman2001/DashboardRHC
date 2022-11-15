@@ -36,10 +36,12 @@ namespace DataCollectionService
         //Operations
         public void CollectData(object sender, System.Timers.ElapsedEventArgs e)
         {
-            FetchAndStoreDeviceData();
+            //FetchAndStoreDeviceData();
+            //Thread listen on port 55600 collect node infos. 
+            // It will added into shared datastructure. 
+            // It will be added to database as well.
 
             UploadPatientInfo();
-
 
         }
 

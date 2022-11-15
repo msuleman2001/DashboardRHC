@@ -7,11 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controllers;
+using Entities;
 
 namespace DataCollectionService
 {
+    
     public static class DataCollectionService 
     {
+        public static List<DeviceAttachmentEntity> attached_devices;
         public static void Main(string[] args)
         {
             TopshelfExitCode exit_code = HostFactory.Run(x =>
