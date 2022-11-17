@@ -93,6 +93,7 @@ namespace DashboardRHC
             }
         }
 
+        //getting device info
         private void LoadDeviceInfo(int device_id)
         {
             if (device_id == 0)
