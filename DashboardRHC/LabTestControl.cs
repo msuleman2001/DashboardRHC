@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -25,7 +26,19 @@ namespace DashboardRHC
 
         private void btnSaveLabTest_Click(object sender, EventArgs e)
         {
-           LabTestEntity new_LabTest = new LabTestEntity();
+            if (txtLabTetsName.Text == "" || txtNormalValue.Text == "")
+            {
+                MessageBox.Show("Please Enter LabTest Name & Normal Value.");
+                return;
+            }
+            if (!Regex.Match(txtLabTetsName.Text, "[a-zA-Z][A-Z]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Lab Test Name." +
+                    "\n\nHint: Avoid Special Characters and Numbers.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtLabTetsName.Focus();
+                return;
+            }
+            LabTestEntity new_LabTest = new LabTestEntity();
             new_LabTest.LabTestID = 0;
             new_LabTest.LabTestName = txtLabTetsName.Text;
             new_LabTest.NormalRange = txtNormalValue.Text;
@@ -40,7 +53,7 @@ namespace DashboardRHC
                 List<LabTestEntity> labtest_list = new List<LabTestEntity>();
                 labtest_list = LabTestController.LabTestSelectAll();
                 gdvLabTest.DataSource = labtest_list;
-                MessageBox.Show("Medicine is added");
+                MessageBox.Show("Lab Test is Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -53,7 +66,7 @@ namespace DashboardRHC
 
         private void btnCloseLabTest_Click(object sender, EventArgs e)
         {
-            Close(sender, e);
+            this.Parent.Controls.Remove(this);
         }
     }
 }

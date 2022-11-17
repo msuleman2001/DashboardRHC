@@ -62,5 +62,10 @@ namespace DashboardRHC
             //lblEnvHumidity.Text = "Env Humidity: " + data_values[5];
             //lblEnvTemp.Text = "Environment Temp: " + data_values[6];
         }
+
+        private void pnlBoxBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

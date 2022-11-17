@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Entities;
 using Controllers;
+using System.Text.RegularExpressions;
 
 namespace DashboardRHC
 {
@@ -23,6 +24,41 @@ namespace DashboardRHC
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtDeviceName.Text == "")
+            {
+                MessageBox.Show("Please Enter Device Name.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtDeviceName.Text, "[a-zA-Z0-9]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid Device Name." +
+                    "\n\nHint: Avoid Special Characters.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDeviceName.Focus();
+                return;
+            }
+
+            if (txtMACAddress.Text == "")
+            {
+                MessageBox.Show("Please Enter MAC Address.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.Match(txtMACAddress.Text, "[a-zA-Z0-9]*$").Success)
+            {
+                MessageBox.Show("Please Enter a Valid MAC Address." +
+                    "\n\nHint: Avoid Special Characters.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtMACAddress.Focus();
+                return;
+            }
+            if (txtDeviceIP.Text.Length < 15)
+            {
+                MessageBox.Show("Please Enter Device IP.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtSensors.Text == "")
+            {
+                MessageBox.Show("Please Enter Sensor Name.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DeviceEntity device = new DeviceEntity();
             device.DeviceID = Convert.ToInt32(this.Tag);
             device.DeviceName = txtDeviceName.Text;
@@ -36,12 +72,12 @@ namespace DashboardRHC
             device.Remarks = txtRemarks.Text;
             if (DeviceController.InsertUpdateDevice(device) > 0)
             {
-                MessageBox.Show("Data Saved");
+                MessageBox.Show("Data Saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
             }
                 
             else
-                MessageBox.Show("Unable to save data");
+                MessageBox.Show("Unable to save data", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void ClearFields()
@@ -123,13 +159,13 @@ namespace DashboardRHC
 
             if (DeviceAttachmentController.InsertUpdateDeviceAttachment(device_attachment) > 0)
             {
-                MessageBox.Show("Device Attached");
+                MessageBox.Show("Device Attached", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnDetach.Enabled = true;
                 btnAttachDevice.Enabled = false;
             }
                 
             else
-                MessageBox.Show("Unable to attach device");
+                MessageBox.Show("Unable to attach device", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvDeviceList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -142,7 +178,7 @@ namespace DashboardRHC
             if (device_attach_id != 0)
             {
                 DeviceAttachmentController.DeleteDeviceAttachmentByID(device_attach_id);
-                MessageBox.Show("Device detached");
+                MessageBox.Show("Device detached", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnAttachDevice.Enabled = true;
                 btnDetach.Enabled = false;
             }
