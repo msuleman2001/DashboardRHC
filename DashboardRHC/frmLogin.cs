@@ -18,7 +18,8 @@ namespace DashboardRHC
 {
     public partial class frmLogin : Form
     {
-        //Hi i am just a comment...
+        //Hi i am just a comment...  and don't be affraid...
+        //some more addition
         frmDashboard frmDashboard;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
