@@ -46,7 +46,7 @@ namespace DashboardRHC
         public frmDashboard()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             timerIsRunning = true;
             
         }
@@ -165,11 +165,6 @@ namespace DashboardRHC
             change_password.Dock = DockStyle.Fill;
             change_password.Tag = Program.AdminID;
             pnlBody.Controls.Add(change_password);
-        }
-
-        private void tmrDashboard_Tick(object sender, EventArgs e)
-        {
-            //AdmittedPatientController.UploadPatients();
         }
 
         private void btnStartCollectionService_Click(object sender, EventArgs e)

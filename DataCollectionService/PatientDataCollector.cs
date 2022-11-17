@@ -19,6 +19,8 @@ namespace DataCollectionService
     {
         private readonly System.Timers.Timer service_timer;
         public long ElapsedTime = 10000;
+        string server_address = "https://10.122.44.155:8000//";
+
 
         //Service functions
         public PatientDataCollector()
@@ -36,7 +38,7 @@ namespace DataCollectionService
         //Operations
         public void CollectData(object sender, System.Timers.ElapsedEventArgs e)
         {
-            //FetchAndStoreDeviceData();
+            FetchAndStoreDeviceData();
             //Thread listen on port 55600 collect node infos. 
             // It will added into shared datastructure. 
             // It will be added to database as well.
@@ -50,6 +52,7 @@ namespace DataCollectionService
         /// </summary>
         private void FetchAndStoreDeviceData()
         {
+
             List<DeviceAttachmentEntity> attached_devices = DeviceAttachmentController.DeviceAttachmentSelectAll();
 
             foreach (DeviceAttachmentEntity attached_device in attached_devices)
@@ -90,7 +93,7 @@ namespace DataCollectionService
                 patient_data.Add(new JProperty("city", unuploaded_patient.PatientAddress));
                 patient_data.Add(new JProperty("gender", unuploaded_patient.PatientGender));
 
-                string reg_response = CallAPI(@"https://safe-rh-mis.com/register/", patient_data, "POST");
+                string reg_response = CallAPI(server_address + "register//", patient_data, "POST");
 
                 JObject register_response = JObject.Parse(reg_response);
                 string res_code = register_response.Property("code").Value.ToString();
@@ -101,7 +104,7 @@ namespace DataCollectionService
                     patient_login_json.Add(new JProperty("phone", unuploaded_patient.AttendentPhone));
                     patient_login_json.Add(new JProperty("password", "12345678"));
 
-                    string login_response = CallAPI(@"https://safe-rh-mis.com/logIn/", patient_login_json, "POST");
+                    string login_response = CallAPI(server_address + "logIn//", patient_login_json, "POST");
                     JObject login_json = JObject.Parse(login_response);
                     string str_global_id = login_json.Property("id").Value.ToString();
                     
@@ -147,7 +150,7 @@ namespace DataCollectionService
         {
             long devie_reading_id = 0;
 
-            string values_json = "{\"device_name\":\"" + values[0] + "\", \"body_temperature\": \" " + values[2] + "\", \"o2\": \"" + values[3] + "\", \"heart_rate\": \"" + values[4] + " \", \"envo_humidity\": \"" + values[5] + "\", \"envo_temp\": \"" + values[6] + "\"}";
+            string values_json = "{\"device_name\":\"" + values[0] + "\", \"body_temp\": \" " + values[2] + "\", \"o2\": \"" + values[3] + "\", \"heart_rate\": \"" + values[4] + " \", \"envo_hum\": \"" + values[5] + "\", \"envo_temp\": \"" + values[6] + "\"}";
 
             DeviceReadingsEntity reading = new DeviceReadingsEntity();
             reading.DeviceReadingID = 0;

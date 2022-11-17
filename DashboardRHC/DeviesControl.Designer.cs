@@ -39,6 +39,7 @@ namespace DashboardRHC
             this.colSensors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpDeviceManagement = new System.Windows.Forms.TabPage();
             this.gbAttachment = new System.Windows.Forms.GroupBox();
+            this.lblAttachmentInfo = new System.Windows.Forms.Label();
             this.btnDetach = new System.Windows.Forms.Button();
             this.cmbPatient = new System.Windows.Forms.ComboBox();
             this.btnAttachDevice = new System.Windows.Forms.Button();
@@ -47,13 +48,8 @@ namespace DashboardRHC
             this.cmbDevice = new System.Windows.Forms.ComboBox();
             this.lblDevice = new System.Windows.Forms.Label();
             this.gbDevice = new System.Windows.Forms.GroupBox();
-            this.txtDeviceIP = new System.Windows.Forms.MaskedTextBox();
-            this.lblDeviceIP = new System.Windows.Forms.Label();
-            this.txtMACAddress = new System.Windows.Forms.TextBox();
-            this.lblDeviceMAC = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.chkIsEnabled = new System.Windows.Forms.CheckBox();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.lblRemarks = new System.Windows.Forms.Label();
             this.txtSensors = new System.Windows.Forms.TextBox();
@@ -165,6 +161,7 @@ namespace DashboardRHC
             // 
             // gbAttachment
             // 
+            this.gbAttachment.Controls.Add(this.lblAttachmentInfo);
             this.gbAttachment.Controls.Add(this.btnDetach);
             this.gbAttachment.Controls.Add(this.cmbPatient);
             this.gbAttachment.Controls.Add(this.btnAttachDevice);
@@ -177,10 +174,18 @@ namespace DashboardRHC
             this.gbAttachment.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbAttachment.Name = "gbAttachment";
             this.gbAttachment.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbAttachment.Size = new System.Drawing.Size(378, 202);
+            this.gbAttachment.Size = new System.Drawing.Size(378, 319);
             this.gbAttachment.TabIndex = 1;
             this.gbAttachment.TabStop = false;
             this.gbAttachment.Text = "Device Attachment";
+            // 
+            // lblAttachmentInfo
+            // 
+            this.lblAttachmentInfo.Location = new System.Drawing.Point(77, 212);
+            this.lblAttachmentInfo.Name = "lblAttachmentInfo";
+            this.lblAttachmentInfo.Size = new System.Drawing.Size(275, 78);
+            this.lblAttachmentInfo.TabIndex = 12;
+            this.lblAttachmentInfo.Text = "Connecting...";
             // 
             // btnDetach
             // 
@@ -258,13 +263,8 @@ namespace DashboardRHC
             // 
             // gbDevice
             // 
-            this.gbDevice.Controls.Add(this.txtDeviceIP);
-            this.gbDevice.Controls.Add(this.lblDeviceIP);
-            this.gbDevice.Controls.Add(this.txtMACAddress);
-            this.gbDevice.Controls.Add(this.lblDeviceMAC);
             this.gbDevice.Controls.Add(this.btnSave);
             this.gbDevice.Controls.Add(this.btnCancel);
-            this.gbDevice.Controls.Add(this.chkIsEnabled);
             this.gbDevice.Controls.Add(this.txtRemarks);
             this.gbDevice.Controls.Add(this.lblRemarks);
             this.gbDevice.Controls.Add(this.txtSensors);
@@ -276,52 +276,15 @@ namespace DashboardRHC
             this.gbDevice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbDevice.Name = "gbDevice";
             this.gbDevice.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbDevice.Size = new System.Drawing.Size(496, 360);
+            this.gbDevice.Size = new System.Drawing.Size(496, 319);
             this.gbDevice.TabIndex = 0;
             this.gbDevice.TabStop = false;
             this.gbDevice.Text = "Device Info";
             // 
-            // txtDeviceIP
-            // 
-            this.txtDeviceIP.Location = new System.Drawing.Point(113, 98);
-            this.txtDeviceIP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtDeviceIP.Mask = "000.000.000.000";
-            this.txtDeviceIP.Name = "txtDeviceIP";
-            this.txtDeviceIP.Size = new System.Drawing.Size(354, 23);
-            this.txtDeviceIP.TabIndex = 2;
-            // 
-            // lblDeviceIP
-            // 
-            this.lblDeviceIP.AutoSize = true;
-            this.lblDeviceIP.Location = new System.Drawing.Point(18, 102);
-            this.lblDeviceIP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDeviceIP.Name = "lblDeviceIP";
-            this.lblDeviceIP.Size = new System.Drawing.Size(55, 15);
-            this.lblDeviceIP.TabIndex = 11;
-            this.lblDeviceIP.Text = "Device IP";
-            // 
-            // txtMACAddress
-            // 
-            this.txtMACAddress.Location = new System.Drawing.Point(113, 60);
-            this.txtMACAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtMACAddress.Name = "txtMACAddress";
-            this.txtMACAddress.Size = new System.Drawing.Size(354, 23);
-            this.txtMACAddress.TabIndex = 1;
-            // 
-            // lblDeviceMAC
-            // 
-            this.lblDeviceMAC.AutoSize = true;
-            this.lblDeviceMAC.Location = new System.Drawing.Point(18, 63);
-            this.lblDeviceMAC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDeviceMAC.Name = "lblDeviceMAC";
-            this.lblDeviceMAC.Size = new System.Drawing.Size(79, 15);
-            this.lblDeviceMAC.TabIndex = 9;
-            this.lblDeviceMAC.Text = "MAC Address";
-            // 
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(286, 303);
+            this.btnSave.Location = new System.Drawing.Point(286, 212);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 27);
@@ -333,7 +296,7 @@ namespace DashboardRHC
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(380, 303);
+            this.btnCancel.Location = new System.Drawing.Point(380, 212);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 27);
@@ -341,20 +304,9 @@ namespace DashboardRHC
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // chkIsEnabled
-            // 
-            this.chkIsEnabled.AutoSize = true;
-            this.chkIsEnabled.Location = new System.Drawing.Point(113, 280);
-            this.chkIsEnabled.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkIsEnabled.Name = "chkIsEnabled";
-            this.chkIsEnabled.Size = new System.Drawing.Size(61, 19);
-            this.chkIsEnabled.TabIndex = 5;
-            this.chkIsEnabled.Text = "Enable";
-            this.chkIsEnabled.UseVisualStyleBackColor = true;
-            // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(113, 178);
+            this.txtRemarks.Location = new System.Drawing.Point(113, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -364,7 +316,7 @@ namespace DashboardRHC
             // lblRemarks
             // 
             this.lblRemarks.AutoSize = true;
-            this.lblRemarks.Location = new System.Drawing.Point(18, 181);
+            this.lblRemarks.Location = new System.Drawing.Point(18, 107);
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Size = new System.Drawing.Size(52, 15);
@@ -373,7 +325,7 @@ namespace DashboardRHC
             // 
             // txtSensors
             // 
-            this.txtSensors.Location = new System.Drawing.Point(113, 136);
+            this.txtSensors.Location = new System.Drawing.Point(113, 62);
             this.txtSensors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSensors.Name = "txtSensors";
             this.txtSensors.Size = new System.Drawing.Size(354, 23);
@@ -382,7 +334,7 @@ namespace DashboardRHC
             // lblSensors
             // 
             this.lblSensors.AutoSize = true;
-            this.lblSensors.Location = new System.Drawing.Point(18, 140);
+            this.lblSensors.Location = new System.Drawing.Point(18, 66);
             this.lblSensors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSensors.Name = "lblSensors";
             this.lblSensors.Size = new System.Drawing.Size(47, 15);
@@ -442,13 +394,8 @@ namespace DashboardRHC
         private System.Windows.Forms.Label lblRemarks;
         private System.Windows.Forms.TextBox txtSensors;
         private System.Windows.Forms.Label lblSensors;
-        private System.Windows.Forms.CheckBox chkIsEnabled;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblDeviceIP;
-        private System.Windows.Forms.TextBox txtMACAddress;
-        private System.Windows.Forms.Label lblDeviceMAC;
-        private System.Windows.Forms.MaskedTextBox txtDeviceIP;
         private System.Windows.Forms.GroupBox gbAttachment;
         private System.Windows.Forms.ComboBox cmbDevice;
         private System.Windows.Forms.Label lblDevice;
@@ -462,5 +409,6 @@ namespace DashboardRHC
         private System.Windows.Forms.DataGridViewTextBoxColumn colDeviceIP;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSensors;
         private System.Windows.Forms.Button btnDetach;
+        private System.Windows.Forms.Label lblAttachmentInfo;
     }
 }

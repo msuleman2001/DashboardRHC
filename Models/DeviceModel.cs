@@ -113,8 +113,8 @@ namespace Models
 
             if (existed_device.DeviceID == 0)
             {
-                query = "INSERT INTO Device (DeviceName,DeviceMAC,DeviceIP,Sensors,DeviceRecievedByID,DeviceRecievedDateTime,IsEnabled,DeviceDisableDate,Remarks) VALUES('{0}','{1}','{2}','{3}',{4},'{5}','{6}','{7}','{8}')";
-                query = string.Format(query, device.DeviceName, device.DeviceMAC, device.DeviceIP, device.Sensors, device.DeviceRecievedByID, device.DeviceRecievedDateTime, device.IsEnabled, device.DeviceDisableDate, device.Remarks);
+                query = "INSERT INTO Device (DeviceName,DeviceMAC,DeviceIP, DevicePort, Sensors,DeviceRecievedByID,DeviceRecievedDateTime,IsEnabled,DeviceDisableDate,Remarks) VALUES('{0}','{1}','{2}','{3}','{4}', '{5}','{6}','{7}','{8}','{9}')";
+                query = string.Format(query, device.DeviceName, device.DeviceMAC, device.DeviceIP, device.DevicePort, device.Sensors, device.DeviceRecievedByID, device.DeviceRecievedDateTime, device.IsEnabled, device.DeviceDisableDate, device.Remarks);
                 ConnectAndExecute(query);
 
                 if (records_updated > 0)
@@ -128,8 +128,8 @@ namespace Models
             }
             else
             {
-                query = "UPDATE Device SET DeviceName = '{0}', DeviceMAC = '{1}', DeviceIP = '{2}', Sensors = '{3}', DeviceRecievedByID = {4}, DeviceRecievedDateTime = '{5}', IsEnabled = '{6}', DeviceDisableDate = '{7}', Remarks = '{8}' WHERE DeviceID = " + device_i_d;
-                query = string.Format(query, device.DeviceName, device.DeviceMAC, device.DeviceIP, device.Sensors, device.DeviceRecievedByID, device.DeviceRecievedDateTime, device.IsEnabled, device.DeviceDisableDate, device.Remarks);
+                query = "UPDATE Device SET DeviceName = '{0}', DeviceMAC = '{1}', DeviceIP = '{2}', DevicePort = '{3}', Sensors = '{4}', DeviceRecievedByID = {5}, DeviceRecievedDateTime = '{6}', IsEnabled = '{7}', DeviceDisableDate = '{8}', Remarks = '{9}' WHERE DeviceID = " + device_i_d;
+                query = string.Format(query, device.DeviceName, device.DeviceMAC, device.DeviceIP, device.DevicePort, device.Sensors, device.DeviceRecievedByID, device.DeviceRecievedDateTime, device.IsEnabled, device.DeviceDisableDate, device.Remarks);
                 ConnectAndExecute(query);
                 device_i_d = device.DeviceID;
             }

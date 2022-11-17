@@ -30,7 +30,6 @@ namespace DashboardRHC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblNameRHC = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace DashboardRHC
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlAdminOps = new System.Windows.Forms.Panel();
+            this.btnStartCollectionService = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnAdmins = new System.Windows.Forms.Button();
@@ -53,8 +53,6 @@ namespace DashboardRHC
             this.btnNotifications = new System.Windows.Forms.Button();
             this.niSAFERH = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tmrDashboard = new System.Windows.Forms.Timer(this.components);
-            this.btnStartCollectionService = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSAFERHLogo)).BeginInit();
             this.pnlCommand.SuspendLayout();
@@ -118,7 +116,6 @@ namespace DashboardRHC
             // 
             // picSAFERHLogo
             // 
-            this.picSAFERHLogo.BackgroundImage = global::DashboardRHC.Properties.Resources.logo_saferh_white_fw;
             this.picSAFERHLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picSAFERHLogo.Location = new System.Drawing.Point(14, 18);
             this.picSAFERHLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -282,6 +279,27 @@ namespace DashboardRHC
             this.pnlAdminOps.MouseLeave += new System.EventHandler(this.pnlAdminOps_MouseLeave);
             this.pnlAdminOps.MouseHover += new System.EventHandler(this.pnlAdminOps_MouseHover);
             // 
+            // btnStartCollectionService
+            // 
+            this.btnStartCollectionService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.btnStartCollectionService.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartCollectionService.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStartCollectionService.FlatAppearance.BorderSize = 0;
+            this.btnStartCollectionService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnStartCollectionService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartCollectionService.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStartCollectionService.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnStartCollectionService.Location = new System.Drawing.Point(0, 145);
+            this.btnStartCollectionService.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStartCollectionService.Name = "btnStartCollectionService";
+            this.btnStartCollectionService.Size = new System.Drawing.Size(233, 29);
+            this.btnStartCollectionService.TabIndex = 13;
+            this.btnStartCollectionService.Text = "Start Collection Serivice";
+            this.btnStartCollectionService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStartCollectionService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStartCollectionService.UseVisualStyleBackColor = false;
+            this.btnStartCollectionService.Click += new System.EventHandler(this.btnStartCollectionService_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -387,7 +405,6 @@ namespace DashboardRHC
             // 
             // niSAFERH
             // 
-            this.niSAFERH.Icon = ((System.Drawing.Icon)(resources.GetObject("niSAFERH.Icon")));
             this.niSAFERH.Text = "SAFE-RH MIS App";
             this.niSAFERH.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.niSAFERH_MouseDoubleClick);
             // 
@@ -395,33 +412,6 @@ namespace DashboardRHC
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // tmrDashboard
-            // 
-            this.tmrDashboard.Enabled = true;
-            this.tmrDashboard.Interval = 3000;
-            this.tmrDashboard.Tick += new System.EventHandler(this.tmrDashboard_Tick);
-            // 
-            // btnStartCollectionService
-            // 
-            this.btnStartCollectionService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btnStartCollectionService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStartCollectionService.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStartCollectionService.FlatAppearance.BorderSize = 0;
-            this.btnStartCollectionService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnStartCollectionService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartCollectionService.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStartCollectionService.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnStartCollectionService.Location = new System.Drawing.Point(0, 145);
-            this.btnStartCollectionService.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnStartCollectionService.Name = "btnStartCollectionService";
-            this.btnStartCollectionService.Size = new System.Drawing.Size(233, 29);
-            this.btnStartCollectionService.TabIndex = 13;
-            this.btnStartCollectionService.Text = "Start Collection Serivice";
-            this.btnStartCollectionService.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStartCollectionService.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStartCollectionService.UseVisualStyleBackColor = false;
-            this.btnStartCollectionService.Click += new System.EventHandler(this.btnStartCollectionService_Click);
             // 
             // frmDashboard
             // 
@@ -476,7 +466,6 @@ namespace DashboardRHC
         private System.Windows.Forms.Button btnAdmins;
         private System.Windows.Forms.NotifyIcon niSAFERH;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Timer tmrDashboard;
         private System.Windows.Forms.Button btnStartCollectionService;
     }
 }

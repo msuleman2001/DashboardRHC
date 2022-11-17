@@ -8,6 +8,7 @@ namespace Entities
         public string DeviceName { get; set; }
         public string DeviceMAC { get; set; }
         public string DeviceIP { get; set; }
+        public string DevicePort { get; set; }
         public string Sensors { get; set; }
         public long DeviceRecievedByID { get; set; }
         public DateTime DeviceRecievedDateTime { get; set; }
