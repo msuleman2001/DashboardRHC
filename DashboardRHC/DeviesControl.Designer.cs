@@ -352,7 +352,7 @@ namespace DashboardRHC
             // lblDeviceName
             // 
             this.lblDeviceName.AutoSize = true;
-            this.lblDeviceName.Location = new System.Drawing.Point(18, 25);
+            this.lblDeviceName.Location = new System.Drawing.Point(17, 25);
             this.lblDeviceName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeviceName.Name = "lblDeviceName";
             this.lblDeviceName.Size = new System.Drawing.Size(77, 15);
