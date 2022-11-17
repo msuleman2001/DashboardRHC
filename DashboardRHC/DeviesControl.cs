@@ -195,7 +195,7 @@ namespace DashboardRHC
         {
 
         }
-
+        //added
         private void btnDetach_Click(object sender, EventArgs e)
         {
             if (device_attach_id != 0)
