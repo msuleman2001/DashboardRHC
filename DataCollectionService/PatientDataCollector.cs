@@ -21,7 +21,6 @@ namespace DataCollectionService
         public long ElapsedTime = 10000;
         string server_address = "https://10.122.44.155:8000//";
 
-
         //Service functions
         public PatientDataCollector()
         {
